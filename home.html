@@ -14,17 +14,15 @@
       --clr-dark:#1e1f22;
       --clr-light:#ffffff;
 
-      /* "Visible-style" glass + overlays */
       --glass-bg: rgba(255,255,255,.08);
       --glass-brd: rgba(255,255,255,.14);
       --glass-shadow: 0 18px 50px rgba(0,0,0,.35);
 
-      /* background treatment */
       --overlay-top: rgba(0,0,0,.70);
       --overlay-mid: rgba(0,0,0,.58);
       --overlay-bot: rgba(0,0,0,.45);
 
-      --cta: #e63946;
+      --cta:#e63946;
       --cta-hover:#ff4d4d;
     }
 
@@ -43,21 +41,18 @@
       overflow:hidden;
     }
 
-    /* gradient overlay (more "premium" than a flat overlay) */
     header.hero::before{
       content:"";
       position:absolute;
       inset:0;
-      background:
-        linear-gradient(
-          to bottom,
-          var(--overlay-top) 0%,
-          var(--overlay-mid) 45%,
-          var(--overlay-bot) 100%
-        );
+      background:linear-gradient(
+        to bottom,
+        var(--overlay-top) 0%,
+        var(--overlay-mid) 45%,
+        var(--overlay-bot) 100%
+      );
     }
 
-    /* subtle vignette for depth */
     header.hero::after{
       content:"";
       position:absolute;
@@ -66,7 +61,7 @@
       pointer-events:none;
     }
 
-    /* ---------- NAV BAR (glass pill like example) ---------- */
+    /* ---------- NAV BAR ---------- */
     .nav{
       position:relative;
       z-index:3;
@@ -82,7 +77,8 @@
       border:1px solid var(--glass-brd);
       border-radius:999px;
       backdrop-filter: blur(10px);
-      box-shadow: var(--glass-shadow);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow:var(--glass-shadow);
     }
 
     .logo{
@@ -94,11 +90,7 @@
       align-items:center;
       gap:.6rem;
     }
-    .logo img{
-      height:64px;
-      width:auto;
-      display:block;
-    }
+    .logo img{height:64px;width:auto;display:block;}
 
     .nav__links{
       list-style:none;
@@ -129,7 +121,7 @@
     }
     .nav__links li a:hover::after{width:100%;}
 
-    /* ---------- CALL BUTTONS (glass) ---------- */
+    /* ---------- CALL BUTTONS ---------- */
     .call-btn{
       position:absolute;
       right:14px;
@@ -144,6 +136,7 @@
       border:1px solid rgba(255,255,255,.25);
       background:rgba(255,255,255,.06);
       backdrop-filter:blur(10px);
+      -webkit-backdrop-filter:blur(10px);
 
       font-weight:700;
       color:#fff;
@@ -155,63 +148,54 @@
       transform:translateY(-50%) scale(1.02);
     }
 
-    /* desktop pill */
     .call-desktop{font-size:.92rem;}
-    /* mobile icon */
-    .call-mobile{
+    .call-mobile{display:none;width:46px;height:46px;padding:0;justify-content:center;}
+
+    /* ---------- HAMBURGER (NO CIRCLE / NO TAP BUBBLE) ---------- */
+    .nav-toggle{
       display:none;
-      width:46px;height:46px;
-      padding:0;
-      justify-content:center;
+      background:transparent !important;
+      border:none !important;
+      border-radius:0 !important;
+      box-shadow:none !important;
+      outline:none !important;
+      padding:0 !important;
+      margin:0 !important;
+
+      position:absolute;
+      right:16px;
+      top:50%;
+      transform:translateY(-50%);
+      z-index:130;
+
+      cursor:pointer;
+      -webkit-appearance:none;
+      appearance:none;
+      -webkit-tap-highlight-color:transparent;
+
+      flex-direction:column;
+      gap:6px;
     }
 
-  /* ---------- HAMBURGER TOGGLE (NO CIRCLE) ---------- */
-.nav-toggle{
-  display:none;
-  background:transparent;
-  border:none;
-  padding:0;
+    .nav-toggle:focus,
+    .nav-toggle:active{
+      outline:none !important;
+      box-shadow:none !important;
+      background:transparent !important;
+    }
 
-  position:absolute;
-  right:16px;
-  top:50%;
-  transform:translateY(-50%);
-  z-index:130;
+    .nav-toggle span{
+      width:22px;
+      height:2px;
+      background:#fff;
+      border-radius:2px;
+      display:block;
+      transition:.25s ease;
+    }
 
-  cursor:pointer;
-
-  /* layout for the 3 lines */
-  width:auto;
-  height:auto;
-  display:flex;
-  flex-direction:column;
-  gap:6px;
-}
-
-.nav-toggle span{
-  width:22px;
-  height:2px;
-  background:#fff;
-  border-radius:2px;
-  display:block;
-  transition:.25s ease;
-}
-
-/* animate to X when menu opens */
-.nav.open .nav-toggle span:nth-child(1){
-  transform:translateY(8px) rotate(45deg);
-}
-.nav.open .nav-toggle span:nth-child(2){
-  opacity:0;
-}
-.nav.open .nav-toggle span:nth-child(3){
-  transform:translateY(-8px) rotate(-45deg);
-}
-
-@media (max-width:600px){
-  .nav-toggle{display:flex;}
-}
-
+    .nav.open .nav-toggle span:nth-child(1){ transform:translateY(8px) rotate(45deg); }
+    .nav.open .nav-toggle span:nth-child(2){ opacity:0; }
+    .nav.open .nav-toggle span:nth-child(3){ transform:translateY(-8px) rotate(-45deg); }
 
     /* ---------- HERO CONTENT ---------- */
     .hero-content{
@@ -230,15 +214,14 @@
       letter-spacing:.5px;
       text-transform:uppercase;
       margin-bottom:.85rem;
-
-      text-shadow: 0 12px 30px rgba(0,0,0,.55);
+      text-shadow:0 12px 30px rgba(0,0,0,.55);
     }
 
     .hero-content p{
       font-size:1.35rem;
       opacity:.92;
       margin-bottom:1.75rem;
-      text-shadow: 0 10px 24px rgba(0,0,0,.45);
+      text-shadow:0 10px 24px rgba(0,0,0,.45);
     }
 
     .cta-row{
@@ -249,7 +232,6 @@
       flex-wrap:wrap;
     }
 
-    /* primary CTA (solid, converts well) */
     .btn{
       background:var(--cta);
       color:#fff;
@@ -262,14 +244,13 @@
       align-items:center;
       justify-content:center;
       min-width:170px;
-      box-shadow: 0 14px 28px rgba(0,0,0,.35);
+      box-shadow:0 14px 28px rgba(0,0,0,.35);
     }
     .btn:hover{
       background:var(--cta-hover);
       transform:translateY(-1px);
     }
 
-    /* secondary CTA (glass outline like example) */
     .btn-outline{
       background:rgba(255,255,255,.06);
       border:1px solid rgba(255,255,255,.25);
@@ -283,6 +264,7 @@
       justify-content:center;
       min-width:170px;
       backdrop-filter:blur(10px);
+      -webkit-backdrop-filter:blur(10px);
     }
     .btn-outline:hover{
       background:rgba(255,255,255,.14);
@@ -304,105 +286,69 @@
       .nav__links{gap:1.6rem;}
     }
 
-   @media(max-width:600px){
+    @media(max-width:600px){
+      header.hero{background-position:center 60%;}
+      .logo img{height:52px;}
 
-  /* background crop for mobile */
-  header.hero{background-position:center 60%;}
+      /* UI-only: hide call buttons on mobile */
+      .call-desktop,
+      .call-mobile{display:none !important;}
 
-  /* logo smaller */
-  .logo img{height:52px;}
+      /* show hamburger on mobile */
+      .nav-toggle{display:flex;}
 
-  /* UI-only: hide ALL call buttons on mobile */
-  .call-desktop,
-  .call-mobile{
-    display:none !important;
-  }
+      /* mobile menu panel */
+      .nav__links{
+        position:absolute;
+        left:10px; right:10px;
+        top:78px;
+        padding:18px 18px 22px;
+        border-radius:22px;
 
-  /* show hamburger on the far right (NO circle) */
-.nav-toggle{
-  display:flex;
-  align-items:center;
-  justify-content:center;
+        background:rgba(20,20,22,.92);
+        border:1px solid rgba(255,255,255,.12);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        box-shadow:0 22px 60px rgba(0,0,0,.55);
 
-  width:auto;
-  height:auto;
-  padding:0;
+        display:flex;
+        flex-direction:column;
+        gap:1.1rem;
+        text-align:center;
 
-  border:none;
-  border-radius:0;
-  background:transparent;
-  box-shadow:none;
+        transform:translateY(-12px);
+        opacity:0;
+        pointer-events:none;
+        transition:.25s ease;
+        z-index:120;
+      }
 
-  position:absolute;
-  right:16px;
-  top:50%;
-  transform:translateY(-50%);
-  z-index:130;
+      .nav.open .nav__links{
+        transform:translateY(0);
+        opacity:1;
+        pointer-events:auto;
+      }
 
-  -webkit-appearance:none;
-  appearance:none;
-  -webkit-tap-highlight-color:transparent;
-}
+      .nav__links li a::after{display:none;}
 
-
-  /* mobile menu panel */
-  .nav__links{
-    position:absolute;
-    left:10px; right:10px;
-    top:78px;
-    padding:18px 18px 22px;
-    border-radius:22px;
-
-    background:rgba(20,20,22,.92);
-    border:1px solid rgba(255,255,255,.12);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    box-shadow: 0 22px 60px rgba(0,0,0,.55);
-
-    display:flex;
-    flex-direction:column;
-    gap:1.1rem;
-    text-align:center;
-
-    transform:translateY(-12px);
-    opacity:0;
-    pointer-events:none;
-    transition: .25s ease;
-    z-index:120;
-  }
-
-  .nav.open .nav__links{
-    transform:translateY(0);
-    opacity:1;
-    pointer-events:auto;
-  }
-
-  .nav__links li a::after{display:none;}
-
-  /* hero typography */
-  .hero-content h1{font-size:2.9rem;}
-  .hero-content p{font-size:1.05rem;}
-  .btn, .btn-outline{min-width:160px;}
-}
-
+      .hero-content h1{font-size:2.9rem;}
+      .hero-content p{font-size:1.05rem;}
+      .btn,.btn-outline{min-width:160px;}
+    }
   </style>
 </head>
 
 <body>
   <header class="hero">
     <div class="nav">
-      <!-- logo -->
       <a href="home.html" class="logo"><img src="images/detaillogo.png" alt="We Detail NC logo"></a>
 
-     <!-- hamburger button (mobile) -->
-<button class="nav-toggle" aria-label="Toggle menu">
-  <span></span>
-  <span></span>
-  <span></span>
-</button>
+      <button class="nav-toggle" aria-label="Toggle menu" type="button">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
 
-
-      <!-- center nav links -->
       <nav>
         <ul class="nav__links">
           <li><a href="home.html">Home</a></li>
@@ -412,7 +358,6 @@
         </ul>
       </nav>
 
-      <!-- DESKTOP pill -->
       <a class="call-btn call-desktop" href="tel:9843328570">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
              stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -427,7 +372,6 @@
         (984) 332-8570
       </a>
 
-      <!-- MOBILE icon -->
       <a class="call-btn call-mobile" href="tel:9843328570" aria-label="Call">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -450,7 +394,7 @@
         <a href="tel:9843328570" class="btn-outline">Get a Quote</a>
       </div>
 
-      <div class="trust"> 5-Star Rated • Fully Mobile </div>
+      <div class="trust">5-Star Rated • Fully Mobile</div>
     </div>
   </header>
 
@@ -463,7 +407,6 @@
         navBar.classList.toggle('open');
       });
 
-      // close menu when clicking a link (mobile UX)
       document.querySelectorAll('.nav__links a').forEach(link => {
         link.addEventListener('click', () => navBar.classList.remove('open'));
       });
