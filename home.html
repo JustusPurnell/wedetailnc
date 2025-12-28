@@ -8,12 +8,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
+
     :root{
       --clr-primary:#1181ff;
       --clr-accent:#ffc400;
       --clr-dark:#1e1f22;
       --clr-light:#ffffff;
-      --clr-overlay:rgba(0,0,0,.66);
+      --clr-overlay: rgba(0,0,0,.58); 
     }
     *{margin:0;padding:0;box-sizing:border-box;}
 
@@ -21,10 +22,14 @@
     a{text-decoration:none;color:inherit;}
 
     /* ---------- HERO ---------- */
-    header.hero{
-      background:url('images/tahoe.jpeg') center/cover no-repeat;
-      position:relative;height:100vh;display:flex;flex-direction:column;
-    }
+   header.hero{
+  background:url('images/lux.png') center 65% / cover no-repeat;
+  position:relative;
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+
     header.hero::before{content:"";position:absolute;inset:0;background:var(--clr-overlay);}
 
     /* ---------- NAV BAR ---------- */
