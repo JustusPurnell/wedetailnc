@@ -165,18 +165,12 @@
       justify-content:center;
     }
 
-  /* ---------- HAMBURGER TOGGLE ---------- */
+  /* ---------- HAMBURGER TOGGLE (NO CIRCLE) ---------- */
 .nav-toggle{
   display:none;
-
-  width:44px;
-  height:44px;
-  border-radius:999px;
-
-  background:rgba(255,255,255,.10);
-  border:1px solid rgba(255,255,255,.18);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background:transparent;
+  border:none;
+  padding:0;
 
   position:absolute;
   right:16px;
@@ -186,14 +180,16 @@
 
   cursor:pointer;
 
-  align-items:center;
-  justify-content:center;
+  /* layout for the 3 lines */
+  width:auto;
+  height:auto;
+  display:flex;
   flex-direction:column;
-  gap:5px;
+  gap:6px;
 }
 
 .nav-toggle span{
-  width:18px;
+  width:22px;
   height:2px;
   background:#fff;
   border-radius:2px;
@@ -203,13 +199,17 @@
 
 /* animate to X when menu opens */
 .nav.open .nav-toggle span:nth-child(1){
-  transform:translateY(7px) rotate(45deg);
+  transform:translateY(8px) rotate(45deg);
 }
 .nav.open .nav-toggle span:nth-child(2){
   opacity:0;
 }
 .nav.open .nav-toggle span:nth-child(3){
-  transform:translateY(-7px) rotate(-45deg);
+  transform:translateY(-8px) rotate(-45deg);
+}
+
+@media (max-width:600px){
+  .nav-toggle{display:flex;}
 }
 
 
