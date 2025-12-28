@@ -285,59 +285,79 @@
       .nav__links{gap:1.6rem;}
     }
 
-    @media(max-width:600px){
-      /* background crop for mobile */
-      header.hero{background-position:center 60%;}
+   @media(max-width:600px){
 
-      /* logo smaller */
-      .logo img{height:52px;}
+  /* background crop for mobile */
+  header.hero{background-position:center 60%;}
 
-      /* hide desktop call pill, show phone icon */
-      .call-desktop{display:none;}
-      .call-mobile{display:flex;}
+  /* logo smaller */
+  .logo img{height:52px;}
 
-      /* show hamburger and move phone icon left */
-      .nav-toggle{display:block;}
-      .call-mobile{right:70px;}
+  /* UI-only: hide ALL call buttons on mobile */
+  .call-desktop,
+  .call-mobile{
+    display:none !important;
+  }
 
-      /* mobile menu panel */
-      .nav__links{
-        position:absolute;
-        left:10px; right:10px;
-        top:78px;
-        padding:18px 18px 22px;
-        border-radius:22px;
+  /* show hamburger on the far right */
+  .nav-toggle{
+    display:flex;                 /* better than block for centering */
+    align-items:center;
+    justify-content:center;
+    width:44px;
+    height:44px;
+    border-radius:999px;
+    border:1px solid rgba(255,255,255,.20);
+    background:rgba(0,0,0,.25);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    position:absolute;
+    right:16px;
+    top:50%;
+    transform:translateY(-50%);
+    z-index:130;
+  }
 
-        background:rgba(20,20,22,.92);
-        border:1px solid rgba(255,255,255,.12);
-        backdrop-filter: blur(12px);
-        box-shadow: 0 22px 60px rgba(0,0,0,.55);
+  /* mobile menu panel */
+  .nav__links{
+    position:absolute;
+    left:10px; right:10px;
+    top:78px;
+    padding:18px 18px 22px;
+    border-radius:22px;
 
-        display:flex;
-        flex-direction:column;
-        gap:1.1rem;
-        text-align:center;
+    background:rgba(20,20,22,.92);
+    border:1px solid rgba(255,255,255,.12);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 22px 60px rgba(0,0,0,.55);
 
-        transform:translateY(-12px);
-        opacity:0;
-        pointer-events:none;
-        transition: .25s ease;
-        z-index:120;
-      }
+    display:flex;
+    flex-direction:column;
+    gap:1.1rem;
+    text-align:center;
 
-      .nav.open .nav__links{
-        transform:translateY(0);
-        opacity:1;
-        pointer-events:auto;
-      }
+    transform:translateY(-12px);
+    opacity:0;
+    pointer-events:none;
+    transition: .25s ease;
+    z-index:120;
+  }
 
-      .nav__links li a::after{display:none;}
+  .nav.open .nav__links{
+    transform:translateY(0);
+    opacity:1;
+    pointer-events:auto;
+  }
 
-      /* hero typography */
-      .hero-content h1{font-size:2.9rem;}
-      .hero-content p{font-size:1.05rem;}
-      .btn, .btn-outline{min-width:160px;}
-    }
+  .nav__links li a::after{display:none;}
+
+  /* hero typography */
+  .hero-content h1{font-size:2.9rem;}
+  .hero-content p{font-size:1.05rem;}
+  .btn, .btn-outline{min-width:160px;}
+}
+
   </style>
 </head>
 
