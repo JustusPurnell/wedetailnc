@@ -8,216 +8,514 @@
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
-    :root {
-      --clr-primary: #1181ff;
-      --clr-accent: #ffc400;
-      --clr-dark: #1e1f22;
-      --clr-light: #ffffff;
+    :root{
+      --clr-primary:#1181ff;
+      --clr-accent:#ffc400;
+      --clr-dark:#1e1f22;
+      --clr-light:#ffffff;
+
+      --glass-bg: rgba(255,255,255,.08);
+      --glass-brd: rgba(255,255,255,.14);
+      --glass-shadow: 0 18px 50px rgba(0,0,0,.35);
+
+      --overlay-top: rgba(0,0,0,.70);
+      --overlay-mid: rgba(0,0,0,.58);
+      --overlay-bot: rgba(0,0,0,.45);
+
+      --cta:#e63946;
+      --cta-hover:#ff4d4d;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:'Inter',sans-serif;background:var(--clr-dark);color:var(--clr-light);}
+    a{text-decoration:none;color:inherit;}
+
+    /* ---------- HERO (About) ---------- */
+    header.about-hero{
+      position:relative;
+      min-height:56vh;
+      height:560px;
+      display:flex;
+      flex-direction:column;
+      overflow:hidden;
+      background:
+        linear-gradient(to bottom, var(--overlay-top), var(--overlay-mid), var(--overlay-bot)),
+        url('images/lux.png') center 60% / cover no-repeat;
     }
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--clr-dark);
-      color: var(--clr-light);
+    header.about-hero::after{
+      content:"";
+      position:absolute;
+      inset:-20%;
+      background: radial-gradient(circle at 50% 50%, rgba(0,0,0,0) 0%, rgba(0,0,0,.55) 70%, rgba(0,0,0,.78) 100%);
+      pointer-events:none;
     }
 
-    a {
-      text-decoration: none;
-      color: inherit;
+    /* ---------- NAV (match home glass pill) ---------- */
+    .nav{
+      position:relative;
+      z-index:5;
+      margin:18px auto 0;
+      width:min(1100px, calc(100% - 32px));
+      height:70px;
+      padding:0 18px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      background:var(--glass-bg);
+      border:1px solid var(--glass-brd);
+      border-radius:999px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: var(--glass-shadow);
     }
 
-    .nav {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 1rem 2rem;
-      background-color: var(--clr-dark);
-      position: sticky;
-      top: 0;
-      z-index: 10;
+    .logo{
+      position:absolute;
+      left:14px;
+      top:50%;
+      transform:translateY(-50%);
+      display:flex;
+      align-items:center;
+    }
+    .logo img{height:64px;width:auto;display:block;}
+
+    .nav__links{
+      list-style:none;
+      display:flex;
+      gap:2.25rem;
+      font-weight:600;
+      font-size:.98rem;
+      letter-spacing:.2px;
     }
 
-    .logo {
-      position: absolute;
-      left: 1rem;
-      top: 50%;
-      transform: translateY(-50%);
+    .nav__links li a{
+      color:#fff;
+      opacity:.92;
+      transition:.25s ease;
+      position:relative;
+    }
+    .nav__links li a:hover{opacity:1;}
+    .nav__links li a::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:-8px;
+      width:0;
+      height:2px;
+      background:rgba(255,255,255,.75);
+      transition:.25s ease;
+      border-radius:2px;
+    }
+    .nav__links li a:hover::after{width:100%;}
+
+    .call-btn{
+      position:absolute;
+      right:14px;
+      top:50%;
+      transform:translateY(-50%);
+      display:flex;
+      align-items:center;
+      gap:.45rem;
+
+      padding:.55rem 1.05rem;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.25);
+      background:rgba(255,255,255,.06);
+      backdrop-filter:blur(10px);
+      -webkit-backdrop-filter:blur(10px);
+
+      font-weight:700;
+      color:#fff;
+      transition:.25s ease;
+      font-size:.92rem;
+    }
+    .call-btn:hover{
+      background:rgba(255,255,255,.14);
+      border-color:rgba(255,255,255,.35);
+      transform:translateY(-50%) scale(1.02);
     }
 
-    .logo img {
-      height: 120px;
-      width: auto;
+    /* Hamburger (no circle) */
+    .nav-toggle{
+      display:none;
+      background:transparent !important;
+      border:none !important;
+      border-radius:0 !important;
+      box-shadow:none !important;
+      outline:none !important;
+      padding:0 !important;
+
+      position:absolute;
+      right:16px;
+      top:50%;
+      transform:translateY(-50%);
+      z-index:130;
+
+      cursor:pointer;
+      -webkit-appearance:none;
+      appearance:none;
+      -webkit-tap-highlight-color:transparent;
+
+      flex-direction:column;
+      gap:6px;
+    }
+    .nav-toggle span{
+      width:22px;
+      height:2px;
+      background:#fff;
+      border-radius:2px;
+      display:block;
+      transition:.25s ease;
+    }
+    .nav.open .nav-toggle span:nth-child(1){ transform:translateY(8px) rotate(45deg); }
+    .nav.open .nav-toggle span:nth-child(2){ opacity:0; }
+    .nav.open .nav-toggle span:nth-child(3){ transform:translateY(-8px) rotate(-45deg); }
+
+    /* ---------- Hero content ---------- */
+    .about-hero__content{
+      position:relative;
+      z-index:2;
+      width:min(980px, 92%);
+      margin:auto;
+      text-align:center;
+      padding: 0 8px 28px;
     }
 
-    .nav__links {
-      list-style: none;
-      display: flex;
-      gap: 2.5rem;
-      font-weight: 500;
-      font-size: 1rem;
-      letter-spacing: .8px;
+    .kicker{
+      display:inline-flex;
+      gap:.5rem;
+      align-items:center;
+      padding:.45rem .9rem;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.18);
+      background:rgba(255,255,255,.06);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      font-weight:700;
+      font-size:.92rem;
+      opacity:.95;
+      margin-bottom:1rem;
     }
 
-    .nav__links li a {
-      position: relative;
-      color: white;
-      transition: color 0.3s ease;
+    .about-hero__content h1{
+      font-family:'Anton',sans-serif;
+      font-size:4.0rem;
+      line-height:1.02;
+      letter-spacing:.5px;
+      text-transform:uppercase;
+      text-shadow: 0 12px 30px rgba(0,0,0,.55);
+      margin-bottom:.8rem;
     }
 
-    .nav__links li a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -4px;
-      width: 0;
-      height: 2px;
-      background: var(--clr-accent);
-      transition: width 0.3s ease;
+    .about-hero__content p{
+      font-size:1.2rem;
+      opacity:.92;
+      max-width: 780px;
+      margin:0 auto;
+      text-shadow: 0 10px 24px rgba(0,0,0,.45);
     }
 
-    .nav__links li a:hover::after {
-      width: 100%;
+    /* ---------- Main layout ---------- */
+    main{
+      width:min(1100px, calc(100% - 32px));
+      margin: -80px auto 64px;
+      position:relative;
+      z-index:3;
     }
 
-    .nav-toggle {
-      display: none;
-      background: none;
-      border: none;
-      cursor: pointer;
-      color: #fff;
-      position: absolute;
-      right: 1rem;
-      top: 50%;
-      transform: translateY(-50%);
-      z-index: 120;
+    .card{
+      background: rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:22px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 22px 60px rgba(0,0,0,.45);
+      overflow:hidden;
     }
 
-    .nav-toggle line {
-      transition: .25s ease;
+    .about-grid{
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap:0;
     }
 
-    .nav.open .nav-toggle line:nth-child(1) {
-      transform: translateY(6px) rotate(45deg);
+    .about-copy{
+      padding:28px 28px 26px;
     }
 
-    .nav.open .nav-toggle line:nth-child(2) {
-      opacity: 0;
+    .about-copy h2{
+      font-family:'Anton',sans-serif;
+      letter-spacing:.4px;
+      font-size:2.4rem;
+      text-transform:uppercase;
+      margin-bottom:10px;
     }
 
-    .nav.open .nav-toggle line:nth-child(3) {
-      transform: translateY(-6px) rotate(-45deg);
+    .about-copy .lead{
+      font-size:1.08rem;
+      opacity:.92;
+      line-height:1.75;
+      margin-bottom:16px;
     }
 
-    .about-section {
-      max-width: 900px;
-      margin: 4rem auto;
-      padding: 2rem;
-      background-color: #2b2e33;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    .about-copy p{
+      line-height:1.85;
+      font-size:1.04rem;
+      opacity:.92;
+      margin-bottom:14px;
     }
 
-    .about-section h2 {
-      font-family: 'Anton', sans-serif;
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      text-align: center;
+    .badges{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:14px;
     }
 
-    .about-section p {
-      line-height: 1.8;
-      font-size: 1.1rem;
-      margin-bottom: 1.2rem;
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:.5rem .8rem;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.16);
+      background:rgba(0,0,0,.22);
+      font-weight:700;
+      font-size:.92rem;
+      opacity:.95;
+      white-space:nowrap;
     }
 
-    .owner-photo {
-      display: block;
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      object-fit: cover;
-      object-position: center 0%;
-      margin: 2rem auto;
-      border: 4px solid var(--clr-accent);
-      overflow: hidden;
+    .about-side{
+      border-left:1px solid rgba(255,255,255,.10);
+      padding:28px;
+      display:flex;
+      flex-direction:column;
+      gap:16px;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
     }
 
-    @media (max-width: 768px) {
-      .logo img {
-        height: 60px;
+    .owner-photo{
+      width:170px;
+      height:170px;
+      border-radius:50%;
+      object-fit:cover;
+      object-position:center 0%;
+      border:4px solid rgba(255,255,255,.18);
+      box-shadow:0 18px 40px rgba(0,0,0,.45);
+      background:#111;
+    }
+
+    .owner-name{
+      font-weight:800;
+      font-size:1.15rem;
+      letter-spacing:.2px;
+      margin-top:4px;
+    }
+
+    .owner-sub{
+      opacity:.85;
+      line-height:1.55;
+      font-size:1rem;
+      max-width: 340px;
+    }
+
+    .cta-row{
+      display:flex;
+      gap:.75rem;
+      margin-top:10px;
+      flex-wrap:wrap;
+      justify-content:center;
+    }
+
+    .btn{
+      background:var(--cta);
+      color:#fff;
+      padding:.9rem 1.35rem;
+      border:none;
+      border-radius:999px;
+      font-weight:800;
+      transition:.25s ease;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-width:160px;
+      box-shadow: 0 14px 28px rgba(0,0,0,.35);
+    }
+    .btn:hover{background:var(--cta-hover);transform:translateY(-1px);}
+
+    .btn-outline{
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.25);
+      color:#fff;
+      padding:.9rem 1.35rem;
+      border-radius:999px;
+      font-weight:800;
+      transition:.25s ease;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-width:160px;
+      backdrop-filter:blur(10px);
+      -webkit-backdrop-filter:blur(10px);
+    }
+    .btn-outline:hover{
+      background:rgba(255,255,255,.14);
+      border-color:rgba(255,255,255,.35);
+      transform:translateY(-1px);
+    }
+
+    /* ---------- Responsive ---------- */
+    @media(max-width:900px){
+      .about-hero__content h1{font-size:3.4rem;}
+      main{margin-top:-70px;}
+      .about-grid{grid-template-columns:1fr;}
+      .about-side{border-left:none;border-top:1px solid rgba(255,255,255,.10);}
+    }
+
+    @media(max-width:600px){
+      header.about-hero{height:520px;min-height:520px;background-position:center 60%;}
+      .logo img{height:52px;}
+
+      /* hide call button on mobile (UI-only, like your home) */
+      .call-btn{display:none !important;}
+      .nav-toggle{display:flex;}
+
+      .nav__links{
+        position:absolute;
+        left:10px; right:10px;
+        top:78px;
+        padding:18px 18px 22px;
+        border-radius:22px;
+
+        background:rgba(20,20,22,.92);
+        border:1px solid rgba(255,255,255,.12);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        box-shadow: 0 22px 60px rgba(0,0,0,.55);
+
+        display:flex;
+        flex-direction:column;
+        gap:1.1rem;
+        text-align:center;
+
+        transform:translateY(-12px);
+        opacity:0;
+        pointer-events:none;
+        transition: .25s ease;
+        z-index:120;
       }
 
-      .nav__links {
-        flex-direction: column;
-        gap: 1.25rem;
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 0;
-        padding: 80px 2rem 2rem;
-        background: rgba(28,29,32,.95);
-        transform: translateY(-120%);
-        opacity: 0;
-        transition: transform .35s ease, opacity .35s ease;
-        text-align: center;
-        z-index: 99;
+      .nav.open .nav__links{
+        transform:translateY(0);
+        opacity:1;
+        pointer-events:auto;
       }
 
-      .nav.open .nav__links {
-        transform: translateY(0);
-        opacity: 1;
-      }
+      .nav__links li a::after{display:none;}
 
-      .nav__links li a::after {
-        display: none;
-      }
+      .about-hero__content h1{font-size:2.8rem;}
+      .about-hero__content p{font-size:1.05rem;}
 
-      .nav-toggle {
-        display: block;
-      }
+      .about-copy{padding:22px;}
+      .about-side{padding:22px;}
+      main{margin:-72px auto 56px;}
     }
   </style>
 </head>
+
 <body>
-  <!-- Navbar -->
-  <div class="nav">
-    <a href="home.html" class="logo"><img src="images/detaillogo.png" alt="We Detail NC logo"></a>
+  <!-- Hero + Nav -->
+  <header class="about-hero">
+    <div class="nav">
+      <a href="home.html" class="logo"><img src="images/detaillogo.png" alt="We Detail NC logo"></a>
 
-    <!-- Hamburger Button -->
-    <button class="nav-toggle" aria-label="Toggle menu">
-      <svg width="28" height="28" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
-           stroke-linecap="round" stroke-linejoin="round" fill="none">
-        <line x1="3" y1="6"  x2="21" y2="6"></line>
-        <line x1="3" y1="12" x2="21" y2="12"></line>
-        <line x1="3" y1="18" x2="21" y2="18"></line>
-      </svg>
-    </button>
+      <button class="nav-toggle" aria-label="Toggle menu" type="button">
+        <span></span><span></span><span></span>
+      </button>
 
-    <nav>
-      <ul class="nav__links">
-        <li><a href="home.html">Home</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="testimonials.html">Testimonials</a></li>
-      </ul>
-    </nav>
-  </div>
+      <nav>
+        <ul class="nav__links">
+          <li><a href="home.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="testimonials.html">Testimonials</a></li>
+        </ul>
+      </nav>
 
-  <!-- About Section -->
-  <section class="about-section">
-    <h2>About Us</h2>
-    <img src="images/croppedhead.png" alt="Owner Headshot" class="owner-photo">
-    <p>We Detail NC started after my first attempt at washing my car and somehow, it looked worse than when I started. That moment sparked my curiosity, and I decided to learn everything I could about the detailing trade at a young age.</p>
-    <p>Over time, I gained real-world experience, including working on luxury vehicles at Rolls-Royce. But I quickly realized that working for someone else meant I could only go so far. So, I took the leap and launched my own mobile detailing business to offer clients the kind of quality and service I always believed in.</p>
-    <p>Today, I proudly operate a fully mobile service, bringing premium detailing directly to your driveway — saving you time while delivering showroom results.</p>
-    <p>On top of running this business, I'm currently studying Computer Science at UNC Charlotte. I also personally designed and developed this website to provide a smooth, user-friendly experience from start to finish.</p>
-  </section>
+      <a class="call-btn" href="tel:9843328570" aria-label="Call (984) 332-8570">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+             style="vertical-align:-3px;">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07
+                   19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.08 4.18
+                   2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72 12.31 12.31 0 0 0 .7 2.81
+                   2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27
+                   a2 2 0 0 1 2.11-.45 12.31 12.31 0 0 0 2.81.7
+                   2 2 0 0 1 1.72 2z"/>
+        </svg>
+        (984) 332-8570
+      </a>
+    </div>
+
+    <div class="about-hero__content">
+  
+      <h1>About We Detail NC</h1>
+  
+    </div>
+  </header>
+
+  <!-- Main Card -->
+  <main>
+    <section class="card">
+      <div class="about-grid">
+        <div class="about-copy">
+          <h2>Our Story</h2>
+          <div class="lead">
+  We Detail NC is a premium, fully mobile detailing service built to make keeping your car clean simple and convenient.
+</div>
+
+<p>
+  I gained hands on experience working on high end vehicles at Rolls-Royce, where attention to detail and quality
+  standards are everything. That’s the same level of care I bring to every vehicle I touch.
+</p>
+
+<p>
+  We come to you anywhere in Charlotte and deliver professional results from maintenance details to deep cleans
+  so you don’t have to waste time driving to a shop or waiting around.
+</p>
+
+<p>
+  I’m also a Computer Science student at UNC Charlotte, and I built this website myself to keep booking fast, clear,
+  and easy from start to finish.
+</p>
+
+
+          <div class="badges">
+            <div class="badge">⭐ 5-Star Rated</div>
+            <div class="badge">🚗 Fully Mobile</div>
+            <div class="badge">🧼 Luxury-Level Results</div>
+            <div class="badge">🕒 Time-Saving Service</div>
+          </div>
+        </div>
+
+        <aside class="about-side">
+          <img src="images/croppedhead.png" alt="Owner Headshot" class="owner-photo">
+          <div class="owner-name">Owner-Operated</div>
+         
+
+          <div class="cta-row">
+            <a class="btn" href="services.html">View Services</a>
+            <a class="btn-outline" href="tel:9843328570">Get a Quote</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -226,6 +524,10 @@
 
       toggle.addEventListener('click', () => {
         navBar.classList.toggle('open');
+      });
+
+      document.querySelectorAll('.nav__links a').forEach(link => {
+        link.addEventListener('click', () => navBar.classList.remove('open'));
       });
     });
   </script>
