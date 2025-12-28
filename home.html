@@ -318,24 +318,32 @@
     display:none !important;
   }
 
-  /* show hamburger on the far right */
-  .nav-toggle{
-    display:flex;                 /* better than block for centering */
-    align-items:center;
-    justify-content:center;
-    width:44px;
-    height:44px;
-    border-radius:999px;
-    border:1px solid rgba(255,255,255,.20);
-    background:rgba(0,0,0,.25);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    position:absolute;
-    right:16px;
-    top:50%;
-    transform:translateY(-50%);
-    z-index:130;
-  }
+  /* show hamburger on the far right (NO circle) */
+.nav-toggle{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  width:auto;
+  height:auto;
+  padding:0;
+
+  border:none;
+  border-radius:0;
+  background:transparent;
+  box-shadow:none;
+
+  position:absolute;
+  right:16px;
+  top:50%;
+  transform:translateY(-50%);
+  z-index:130;
+
+  -webkit-appearance:none;
+  appearance:none;
+  -webkit-tap-highlight-color:transparent;
+}
+
 
   /* mobile menu panel */
   .nav__links{
