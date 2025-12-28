@@ -165,34 +165,53 @@
       justify-content:center;
     }
 
-    /* ---------- HAMBURGER ---------- */
-    .nav-toggle{
-      display:none;
-      background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.18);
-      border-radius:999px;
-      width:46px;
-      height:46px;
-      cursor:pointer;
-      color:#fff;
+  /* ---------- HAMBURGER TOGGLE ---------- */
+.nav-toggle{
+  display:none;
 
-      position:absolute;
-      right:14px;
-      top:50%;
-      transform:translateY(-50%);
-      z-index:130;
+  width:44px;
+  height:44px;
+  border-radius:999px;
 
-      backdrop-filter:blur(10px);
-      transition:.25s ease;
-    }
-    .nav-toggle:hover{background:rgba(255,255,255,.12);}
-    .nav-toggle svg{display:block;margin:auto;}
-    .nav-toggle line{transition:.25s ease; transform-origin:center;}
+  background:rgba(255,255,255,.10);
+  border:1px solid rgba(255,255,255,.18);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 
-    /* turn into X when open */
-    .nav.open .nav-toggle line:nth-child(1){transform:translateY(6px) rotate(45deg);}
-    .nav.open .nav-toggle line:nth-child(2){opacity:0;}
-    .nav.open .nav-toggle line:nth-child(3){transform:translateY(-6px) rotate(-45deg);}
+  position:absolute;
+  right:16px;
+  top:50%;
+  transform:translateY(-50%);
+  z-index:130;
+
+  cursor:pointer;
+
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  gap:5px;
+}
+
+.nav-toggle span{
+  width:18px;
+  height:2px;
+  background:#fff;
+  border-radius:2px;
+  display:block;
+  transition:.25s ease;
+}
+
+/* animate to X when menu opens */
+.nav.open .nav-toggle span:nth-child(1){
+  transform:translateY(7px) rotate(45deg);
+}
+.nav.open .nav-toggle span:nth-child(2){
+  opacity:0;
+}
+.nav.open .nav-toggle span:nth-child(3){
+  transform:translateY(-7px) rotate(-45deg);
+}
+
 
     /* ---------- HERO CONTENT ---------- */
     .hero-content{
@@ -367,15 +386,13 @@
       <!-- logo -->
       <a href="home.html" class="logo"><img src="images/detaillogo.png" alt="We Detail NC logo"></a>
 
-      <!-- hamburger button (mobile) -->
-      <button class="nav-toggle" aria-label="Toggle menu">
-        <svg width="26" height="26" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
-             stroke-linecap="round" stroke-linejoin="round" fill="none">
-          <line x1="4" y1="7"  x2="20" y2="7"></line>
-          <line x1="4" y1="12" x2="20" y2="12"></line>
-          <line x1="4" y1="17" x2="20" y2="17"></line>
-        </svg>
-      </button>
+     <!-- hamburger button (mobile) -->
+<button class="nav-toggle" aria-label="Toggle menu">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+
 
       <!-- center nav links -->
       <nav>
