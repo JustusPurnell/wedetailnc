@@ -284,21 +284,25 @@
       background: rgba(255,255,255,.075);
     }
 
-    .test-media{
-      position:relative;
-      height: 320px;
-      overflow:hidden;
-      background: rgba(0,0,0,.25);
-    }
+    /* REPLACE your current .test-media and .test-media img rules with this */
 
-    .test-media img{
-      width:100%;
-      height:100%;
-      object-fit: cover;
-      display:block;
-      transform: scale(1.01);
-      transition: transform .35s ease;
-    }
+.test-media{
+  position:relative;
+  height:auto;                 /* no forced crop height */
+  aspect-ratio: 16 / 9;        /* consistent card shape */
+  overflow:hidden;
+  background: rgba(0,0,0,.35);
+  padding: 12px;               /* gives screenshots breathing room */
+}
+
+.test-media img{
+  width:100%;
+  height:100%;
+  object-fit: contain;         /* ✅ shows full image */
+  display:block;
+  transform: none !important;  /* stop zoom effects */
+}
+
 
     .test-card:hover .test-media img{
       transform: scale(1.05);

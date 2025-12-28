@@ -282,6 +282,13 @@
       transform: translateY(0);
       transition: transform .25s ease, border-color .25s ease, background .25s ease;
     }
+    .service-card{
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  will-change: transform;
+  isolation: isolate;
+}
+
 
     .service-card:hover{
       transform: translateY(-3px);
