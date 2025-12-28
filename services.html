@@ -30,7 +30,6 @@
     body{font-family:'Inter',sans-serif;background:var(--clr-dark);color:var(--clr-light);}
     a{text-decoration:none;color:inherit;}
 
-    /* ===== HERO (Services) ===== */
     header.services-hero{
       position:relative;
       min-height:56vh;
@@ -51,7 +50,6 @@
       pointer-events:none;
     }
 
-    /* ===== NAV (match home/about glass pill) ===== */
     .nav{
       position:relative;
       z-index:5;
@@ -62,7 +60,6 @@
       display:flex;
       align-items:center;
       justify-content:center;
-
       background:var(--glass-bg);
       border:1px solid var(--glass-brd);
       border-radius:999px;
@@ -118,14 +115,12 @@
       display:flex;
       align-items:center;
       gap:.45rem;
-
       padding:.55rem 1.05rem;
       border-radius:999px;
       border:1px solid rgba(255,255,255,.25);
       background:rgba(255,255,255,.06);
       backdrop-filter:blur(10px);
       -webkit-backdrop-filter:blur(10px);
-
       font-weight:700;
       color:#fff;
       transition:.25s ease;
@@ -137,7 +132,6 @@
       transform:translateY(-50%) scale(1.02);
     }
 
-    /* Hamburger (no circle) */
     .nav-toggle{
       display:none;
       background:transparent !important;
@@ -146,18 +140,15 @@
       box-shadow:none !important;
       outline:none !important;
       padding:0 !important;
-
       position:absolute;
       right:16px;
       top:50%;
       transform:translateY(-50%);
       z-index:130;
-
       cursor:pointer;
       -webkit-appearance:none;
       appearance:none;
       -webkit-tap-highlight-color:transparent;
-
       flex-direction:column;
       gap:6px;
     }
@@ -173,7 +164,6 @@
     .nav.open .nav-toggle span:nth-child(2){ opacity:0; }
     .nav.open .nav-toggle span:nth-child(3){ transform:translateY(-8px) rotate(-45deg); }
 
-    /* ===== HERO CONTENT ===== */
     .services-hero__content{
       position:relative;
       z-index:2;
@@ -181,22 +171,6 @@
       margin:auto;
       text-align:center;
       padding: 0 8px 28px;
-    }
-
-    .kicker{
-      display:inline-flex;
-      gap:.5rem;
-      align-items:center;
-      padding:.45rem .9rem;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.18);
-      background:rgba(255,255,255,.06);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      font-weight:800;
-      font-size:.92rem;
-      opacity:.95;
-      margin-bottom:1rem;
     }
 
     .services-hero__content h1{
@@ -218,7 +192,6 @@
       line-height:1.7;
     }
 
-    /* ===== MAIN LAYOUT ===== */
     main{
       width:min(1100px, calc(100% - 32px));
       margin: -90px auto 64px;
@@ -258,7 +231,6 @@
       font-size:1.05rem;
     }
 
-    /* ===== PACKAGE GRID ===== */
     .service-grid{
       display:grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -267,33 +239,43 @@
       padding: 10px;
     }
 
+    /* iOS Safari safe glass card (prevents white glitch) */
     .service-card{
       position:relative;
       overflow:hidden;
       border-radius: 22px;
-      background: rgba(255,255,255,.06);
       border: 1px solid rgba(255,255,255,.12);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
       box-shadow: 0 22px 60px rgba(0,0,0,.40);
       display:flex;
       flex-direction:column;
       min-height: 100%;
-      transform: translateY(0);
-      transition: transform .25s ease, border-color .25s ease, background .25s ease;
+      transition: transform .25s ease, border-color .25s ease;
+      transform: translateZ(0);
+      -webkit-transform: translateZ(0);
+      will-change: transform;
+      isolation: isolate;
+      background: rgba(255,255,255,.06);
     }
-    .service-card{
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-  will-change: transform;
-  isolation: isolate;
-}
-x
+
+    .service-card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: rgba(255,255,255,.06);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index:0;
+      pointer-events:none;
+    }
+
+    .service-card > *{
+      position:relative;
+      z-index:1;
+    }
 
     .service-card:hover{
-      transform: translateY(-3px);
+      transform: translateZ(0) translateY(-3px);
       border-color: rgba(255,255,255,.18);
-      background: rgba(255,255,255,.075);
     }
 
     .service-card.featured{
@@ -461,7 +443,6 @@ x
       padding: 0 10px 6px;
     }
 
-    /* ===== Responsive ===== */
     @media(max-width:900px){
       .services-hero__content h1{font-size:3.4rem;}
       main{margin-top:-80px;}
@@ -470,8 +451,6 @@ x
     @media(max-width:600px){
       header.services-hero{height:520px;min-height:520px;background-position:center 60%;}
       .logo img{height:52px;}
-
-      /* hide call button on mobile (match home/about) */
       .call-btn{display:none !important;}
       .nav-toggle{display:flex;}
 
@@ -481,18 +460,15 @@ x
         top:78px;
         padding:18px 18px 22px;
         border-radius:22px;
-
         background:rgba(20,20,22,.92);
         border:1px solid rgba(255,255,255,.12);
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
         box-shadow: 0 22px 60px rgba(0,0,0,.55);
-
         display:flex;
         flex-direction:column;
         gap:1.1rem;
         text-align:center;
-
         transform:translateY(-12px);
         opacity:0;
         pointer-events:none;
@@ -507,7 +483,6 @@ x
       }
 
       .nav__links li a::after{display:none;}
-
       .services-hero__content h1{font-size:2.8rem;}
       .services-hero__content p{font-size:1.05rem;}
 
@@ -521,7 +496,6 @@ x
 </head>
 
 <body>
-  <!-- Hero + Nav -->
   <header class="services-hero">
     <div class="nav">
       <a href="home.html" class="logo"><img src="images/detaillogo.png" alt="We Detail NC logo"></a>
@@ -546,7 +520,7 @@ x
           <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07
                    19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.08 4.18
                    2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72 12.31 12.31 0 0 0 .7 2.81
-                   2 2 0 0 1-.45 2.11L8.09 9.91a16 16 16 0 0 0 6 6l1.27-1.27
+                   2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27
                    a2 2 0 0 1 2.11-.45 12.31 12.31 0 0 0 2.81.7
                    2 2 0 0 1 1.72 2z"/>
         </svg>
@@ -555,13 +529,11 @@ x
     </div>
 
     <div class="services-hero__content">
-
       <h1>Services</h1>
       <p>Choose a package that fits your vehicle and goals. We bring premium detailing to your driveway with clean, professional results.</p>
     </div>
   </header>
 
-  <!-- Main Content -->
   <main>
     <section class="card">
       <div class="section-head">
@@ -571,10 +543,10 @@ x
 
       <div class="service-grid">
 
-
+        <!-- 1) Elite = Most Value -->
         <article class="service-card">
           <div class="service-media">
-            <span class="service-tag">Correction</span>
+            <span class="service-tag">Most Value</span>
             <span class="service-price">Starting at $420</span>
             <img src="images/tahoe.jpeg" alt="Elite paint correction package">
           </div>
@@ -595,9 +567,10 @@ x
           </div>
         </article>
 
+        <!-- 2) Deluxe = Most Popular -->
         <article class="service-card">
           <div class="service-media">
-            <span class="service-tag">Best Value</span>
+            <span class="service-tag">Most Popular</span>
             <span class="service-price">Starting at $300</span>
             <img src="images/bmww.jpeg" alt="Deluxe package">
           </div>
@@ -618,6 +591,7 @@ x
           </div>
         </article>
 
+        <!-- rest unchanged -->
         <article class="service-card">
           <div class="service-media">
             <span class="service-tag">Quick Clean</span>
