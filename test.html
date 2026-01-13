@@ -7,258 +7,554 @@
   <meta name="description" content="Luxury mobile car detailing, ceramic coating & paint-protection services brought to your driveway anywhere in Charlotte, NC." />
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AutoDetailing",
+  "name": "We Detail NC",
+  "url": "https://wedetailnc.com/",
+  "telephone": "+1-984-332-8570",
+  "image": "https://wedetailnc.com/images/detaillogo.png",
+  "description": "Luxury mobile car detailing, ceramic coating & paint-protection services brought to your driveway anywhere in Charlotte, NC.",
+  "priceRange": "$$",
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": "Charlotte",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Charlotte",
+        "addressRegion": "NC",
+        "addressCountry": "US"
+      }
+    }
+  ],
+  "serviceType": [
+    "Mobile Car Detailing",
+    "Interior Detailing",
+    "Exterior Detailing",
+    "Ceramic Coating",
+    "Paint Correction",
+    "Paint Protection"
+  ],
+  "sameAs": [
+    "https://share.google/nRf0XBHYdl2G9DwSW"
+  ]
+}
+</script>
+
   <style>
     :root{
       --clr-primary:#1181ff;
       --clr-accent:#ffc400;
       --clr-dark:#1e1f22;
       --clr-light:#ffffff;
-      --clr-overlay:rgba(0,0,0,.66);
-    }
-    *{margin:0;padding:0;box-sizing:border-box;}
 
+      --glass-bg: rgba(255,255,255,.08);
+      --glass-brd: rgba(255,255,255,.14);
+      --glass-shadow: 0 18px 50px rgba(0,0,0,.35);
+
+      --overlay-top: rgba(0,0,0,.70);
+      --overlay-mid: rgba(0,0,0,.58);
+      --overlay-bot: rgba(0,0,0,.45);
+
+      --cta:#e63946;
+      --cta-hover:#ff4d4d;
+
+      --muted: rgba(255,255,255,.78);
+      --muted2: rgba(255,255,255,.62);
+      --section-bg: #141518;
+      --section-bg-2:#101114;
+      --section-brd: rgba(255,255,255,.10);
+    }
+
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
     body{font-family:'Inter',sans-serif;background:var(--clr-dark);color:var(--clr-light);}
     a{text-decoration:none;color:inherit;}
 
+    /* ---------- HERO ---------- */
     header.hero{
+      background:url('images/fire.png') center 65% / cover no-repeat;
       position:relative;
       height:100vh;
+      min-height:640px;
       display:flex;
       flex-direction:column;
-      background:url('images/camaro2.jpeg') center/cover no-repeat;
       overflow:hidden;
-    }
-
-    .hero-video{
-      position:absolute;
-      inset:0;
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      z-index:0;
-      display:none; /* hidden on desktop */
     }
 
     header.hero::before{
       content:"";
       position:absolute;
       inset:0;
-      background:var(--clr-overlay);
-      z-index:1;
+      background:linear-gradient(
+        to bottom,
+        var(--overlay-top) 0%,
+        var(--overlay-mid) 45%,
+        var(--overlay-bot) 100%
+      );
     }
 
+    header.hero::after{
+      content:"";
+      position:absolute;
+      inset:-20%;
+      background: radial-gradient(circle at 50% 55%, rgba(0,0,0,0) 0%, rgba(0,0,0,.55) 70%, rgba(0,0,0,.75) 100%);
+      pointer-events:none;
+    }
+
+    /* ---------- NAV BAR ---------- */
     .nav{
       position:relative;
-      height:64px;
-      padding:0 2rem;
+      z-index:3;
+      margin:18px auto 0;
+      width:min(1100px, calc(100% - 32px));
+      height:70px;
+      padding:0 18px;
       display:flex;
       align-items:center;
       justify-content:center;
-      z-index:2;
+
+      background:var(--glass-bg);
+      border:1px solid var(--glass-brd);
+      border-radius:999px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow:var(--glass-shadow);
     }
 
     .logo{
       position:absolute;
-      left:1rem;
-      top:50%;
-      transform:translateY(-50%);
-    }
-
-    .logo img{
-      height:120px;
-      width:auto;
-    }
-
-    .nav__links{
-      list-style:none;
-      display:flex;
-      gap:2.5rem;
-      font-weight:500;
-      font-size:1rem;
-      letter-spacing:.8px;
-    }
-
-    .nav__links li a{
-      position:relative;
-      color:#fff;
-      transition:.3s;
-    }
-
-    .nav__links li a::after{
-      content:"";
-      position:absolute;
-      left:0;
-      bottom:-4px;
-      width:0;
-      height:2px;
-      background:var(--clr-accent);
-      transition:.3s;
-    }
-
-    .nav__links li a:hover::after{width:100%;}
-
-    .call-btn{
-      position:absolute;
-      right:1rem;
+      left:14px;
       top:50%;
       transform:translateY(-50%);
       display:flex;
       align-items:center;
-      gap:.35rem;
-      border:1px solid rgba(255,255,255,.85);
-      border-radius:40px;
+      gap:.6rem;
+    }
+    .logo img{height:64px;width:auto;display:block;}
+
+    .nav__links{
+      list-style:none;
+      display:flex;
+      gap:2.25rem;
       font-weight:600;
+      font-size:.98rem;
+      letter-spacing:.2px;
+    }
+
+    .nav__links li a{
       color:#fff;
-      background:transparent;
-      transition:background .3s ease,color .3s ease;
-      backdrop-filter:blur(4px);
-      z-index:2;
+      opacity:.92;
+      transition:.25s ease;
+      position:relative;
     }
+    .nav__links li a:hover{opacity:1;}
+    .nav__links li a::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:-8px;
+      width:0;
+      height:2px;
+      background:rgba(255,255,255,.75);
+      transition:.25s ease;
+      border-radius:2px;
+    }
+    .nav__links li a:hover::after{width:100%;}
 
+    /* ---------- CALL BUTTONS ---------- */
+    .call-btn{
+      position:absolute;
+      right:14px;
+      top:50%;
+      transform:translateY(-50%);
+      display:flex;
+      align-items:center;
+      gap:.45rem;
+
+      padding:.55rem 1.05rem;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.25);
+      background:rgba(255,255,255,.06);
+      backdrop-filter:blur(10px);
+      -webkit-backdrop-filter:blur(10px);
+
+      font-weight:700;
+      color:#fff;
+      transition:.25s ease;
+    }
     .call-btn:hover{
-      background:#fff;
-      color:#1e1f22;
+      background:rgba(255,255,255,.14);
+      border-color:rgba(255,255,255,.35);
+      transform:translateY(-50%) scale(1.02);
     }
 
-    .call-desktop{
-      padding:.5rem 1rem;
-      font-size:.9rem;
-    }
+    .call-desktop{font-size:.92rem;}
+    .call-mobile{display:none;width:46px;height:46px;padding:0;justify-content:center;}
 
-    .call-mobile{
+    /* ---------- HAMBURGER (NO CIRCLE / NO TAP BUBBLE) ---------- */
+    .nav-toggle{
       display:none;
-      padding:.55rem;
-      width:46px;
-      height:46px;
-      justify-content:center;
+      background:transparent !important;
+      border:none !important;
+      border-radius:0 !important;
+      box-shadow:none !important;
+      outline:none !important;
+      padding:0 !important;
+      margin:0 !important;
+
+      position:absolute;
+      right:16px;
+      top:50%;
+      transform:translateY(-50%);
+      z-index:130;
+
+      cursor:pointer;
+      -webkit-appearance:none;
+      appearance:none;
+      -webkit-tap-highlight-color:transparent;
+
+      flex-direction:column;
+      gap:6px;
     }
 
-    .call-mobile svg{margin:0;}
+    .nav-toggle:focus,
+    .nav-toggle:active{
+      outline:none !important;
+      box-shadow:none !important;
+      background:transparent !important;
+    }
 
+    .nav-toggle span{
+      width:22px;
+      height:2px;
+      background:#fff;
+      border-radius:2px;
+      display:block;
+      transition:.25s ease;
+    }
+
+    .nav.open .nav-toggle span:nth-child(1){ transform:translateY(8px) rotate(45deg); }
+    .nav.open .nav-toggle span:nth-child(2){ opacity:0; }
+    .nav.open .nav-toggle span:nth-child(3){ transform:translateY(-8px) rotate(-45deg); }
+
+    /* ---------- HERO CONTENT ---------- */
     .hero-content{
-      text-align:center;
-      padding:0 2rem;
       position:relative;
       z-index:2;
       margin:auto;
+      width:min(980px, 92%);
+      text-align:center;
+      padding:0 8px;
     }
 
     .hero-content h1{
       font-family:'Anton',sans-serif;
-      font-size:4rem;
-      margin-bottom:1rem;
+      font-size:4.3rem;
+      line-height:1.02;
+      letter-spacing:.5px;
+      text-transform:uppercase;
+      margin-bottom:.85rem;
+      text-shadow:0 12px 30px rgba(0,0,0,.55);
     }
 
     .hero-content p{
-      font-size:1.5rem;
-      margin-bottom:2rem;
+      font-size:1.35rem;
+      opacity:.92;
+      margin-bottom:1.75rem;
+      text-shadow:0 10px 24px rgba(0,0,0,.45);
+    }
+
+    .cta-row{
+      display:flex;
+      gap:.85rem;
+      justify-content:center;
+      align-items:center;
+      flex-wrap:wrap;
     }
 
     .btn{
-      background:#e63946;
+      background:var(--cta);
       color:#fff;
-      padding:.75rem 1.5rem;
+      padding:.9rem 1.45rem;
       border:none;
-      border-radius:5px;
-      font-weight:bold;
-      transition:.3s;
-      display:inline-block;
-    }
-
-    .btn:hover{background:#ff4d4d;}
-
-    .nav-toggle{
-      display:none;
-      background:none;
-      border:none;
-      cursor:pointer;
-      color:#fff;
-      position:absolute;
-      right:1rem;
-      top:50%;
-      transform:translateY(-50%);
-      z-index:120;
-    }
-
-    .nav-toggle line{
+      border-radius:999px;
+      font-weight:800;
       transition:.25s ease;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-width:170px;
+      box-shadow:0 14px 28px rgba(0,0,0,.35);
+    }
+    .btn:hover{
+      background:var(--cta-hover);
+      transform:translateY(-1px);
     }
 
-    .nav.open .nav-toggle line:nth-child(1){
-      transform:translateY(6px) rotate(45deg);
+    .btn-outline{
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.25);
+      color:#fff;
+      padding:.9rem 1.45rem;
+      border-radius:999px;
+      font-weight:800;
+      transition:.25s ease;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-width:170px;
+      backdrop-filter:blur(10px);
+      -webkit-backdrop-filter:blur(10px);
+    }
+    .btn-outline:hover{
+      background:rgba(255,255,255,.14);
+      border-color:rgba(255,255,255,.35);
+      transform:translateY(-1px);
     }
 
-    .nav.open .nav-toggle line:nth-child(2){
+    .trust{
+      margin-top:1rem;
+      font-size:.95rem;
+      opacity:.88;
+      letter-spacing:.2px;
+    }
+
+    /* ---------- ABOUT (NEW) ---------- */
+    section.about{
+      position:relative;
+      background: linear-gradient(180deg, var(--section-bg) 0%, var(--section-bg-2) 100%);
+      padding: clamp(70px, 8vw, 120px) 0;
+      overflow:hidden;
+    }
+
+    section.about::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(230,57,70,.10) 0%, rgba(230,57,70,0) 55%),
+        radial-gradient(circle at 85% 70%, rgba(17,129,255,.10) 0%, rgba(17,129,255,0) 60%);
+      pointer-events:none;
+    }
+
+    .container{
+      width:min(1100px, calc(100% - 32px));
+      margin:0 auto;
+      position:relative;
+      z-index:1;
+    }
+
+    .about-grid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: clamp(18px, 3vw, 34px);
+      align-items:stretch;
+    }
+
+    .about-card{
+      background: rgba(255,255,255,.06);
+      border:1px solid var(--section-brd);
+      border-radius: 22px;
+      padding: clamp(18px, 3vw, 28px);
+      box-shadow: 0 24px 70px rgba(0,0,0,.40);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .about-kicker{
+      display:inline-block;
+      font-weight:800;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color: rgba(255,255,255,.75);
+      font-size:.78rem;
+      margin-bottom:10px;
+    }
+
+    .about-title{
+      font-family:'Anton',sans-serif;
+      text-transform:uppercase;
+      letter-spacing:.03em;
+      font-size: clamp(2.1rem, 3.8vw, 3.1rem);
+      line-height:1.05;
+      margin-bottom:10px;
+    }
+
+    .about-text{
+      color: var(--muted);
+      font-size: 1.02rem;
+      line-height: 1.7;
+      margin-bottom: 14px;
+      max-width: 60ch;
+    }
+
+    .about-points{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:12px;
+      margin-top: 16px;
+    }
+
+    .point{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      padding: 12px 12px;
+      border-radius: 16px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.18);
+    }
+
+    .dot{
+      width:10px;height:10px;border-radius:50%;
+      background: var(--cta);
+      margin-top:6px;
+      box-shadow: 0 0 0 6px rgba(230,57,70,.14);
+      flex:0 0 auto;
+    }
+
+    .point b{
+      display:block;
+      font-weight:800;
+      margin-bottom:2px;
+      letter-spacing:.2px;
+    }
+
+    .point p{
+      color: var(--muted2);
+      font-size:.96rem;
+      line-height:1.55;
+    }
+
+    .about-side{
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+      height:100%;
+    }
+
+    .stat{
+      flex:1;
+      background: rgba(255,255,255,.06);
+      border:1px solid var(--section-brd);
+      border-radius: 22px;
+      padding: 18px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      gap:8px;
+      box-shadow: 0 24px 70px rgba(0,0,0,.35);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .stat .big{
+      font-family:'Anton',sans-serif;
+      font-size: 2.3rem;
+      letter-spacing:.03em;
+      text-transform:uppercase;
+      line-height:1;
+    }
+    .stat .small{
+      color: var(--muted2);
+      line-height:1.55;
+    }
+
+    /* slide-up reveal */
+    .reveal{
       opacity:0;
+      transform: translateY(34px);
+      transition: opacity .7s ease, transform .7s cubic-bezier(.2,.8,.2,1);
+      will-change: opacity, transform;
+    }
+    .reveal.in-view{
+      opacity:1;
+      transform: translateY(0);
     }
 
-    .nav.open .nav-toggle line:nth-child(3){
-      transform:translateY(-6px) rotate(-45deg);
+    /* ---------- RESPONSIVE ---------- */
+    @media(max-width:900px){
+      .hero-content h1{font-size:3.6rem;}
+      .hero-content p{font-size:1.2rem;}
+      .nav__links{gap:1.6rem;}
+      .about-grid{grid-template-columns: 1fr;}
     }
 
     @media(max-width:600px){
-      .logo img{height:60px;}
-      .call-desktop{display:none;}
-      .call-mobile{display:flex;}
-      .nav-toggle{display:block;}
+      header.hero{background-position:center 60%;}
+      .logo img{height:52px;}
 
-      .hero-video{
-        display:block; /* show video on mobile */
-      }
+      /* UI-only: hide call buttons on mobile */
+      .call-desktop,
+      .call-mobile{display:none !important;}
 
+      /* show hamburger on mobile */
+      .nav-toggle{display:flex;}
+
+      /* mobile menu panel */
       .nav__links{
+        position:absolute;
+        left:10px; right:10px;
+        top:78px;
+        padding:18px 18px 22px;
+        border-radius:22px;
+
+        background:rgba(20,20,22,.92);
+        border:1px solid rgba(255,255,255,.12);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        box-shadow:0 22px 60px rgba(0,0,0,.55);
+
         display:flex;
         flex-direction:column;
-        gap:1.25rem;
-        position:absolute;
-        left:0;
-        right:0;
-        top:0;
-        padding:80px 2rem 2rem;
-        background:rgba(28,29,32,.95);
-        transform:translateY(-120%);
-        opacity:0;
-        transition:transform .35s ease, opacity .35s ease;
+        gap:1.1rem;
         text-align:center;
-        z-index:99;
+
+        transform:translateY(-12px);
+        opacity:0;
+        pointer-events:none;
+        transition:.25s ease;
+        z-index:120;
       }
 
       .nav.open .nav__links{
         transform:translateY(0);
         opacity:1;
+        pointer-events:auto;
       }
 
       .nav__links li a::after{display:none;}
 
-      .call-mobile{right:3.5rem;}
+      .hero-content h1{font-size:2.9rem;}
+      .hero-content p{font-size:1.05rem;}
+      .btn,.btn-outline{min-width:160px;}
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      html{scroll-behavior:auto;}
+      .reveal{transition:none; transform:none; opacity:1;}
     }
   </style>
 </head>
 
 <body>
-  <header class="hero">
-    <video class="hero-video" autoplay muted loop playsinline poster="images/camaro2.jpeg">
-      <source src="videos/hero-detailing.mp4" type="video/mp4">
-    </video>
-
+  <header class="hero" id="top">
     <div class="nav">
-      <a href="home.html" class="logo">
-        <img src="images/detaillogo.png" alt="We Detail NC logo">
-      </a>
+      <a href="home.html" class="logo"><img src="images/detaillogo.png" alt="We Detail NC logo"></a>
 
-      <button class="nav-toggle" aria-label="Toggle menu">
-        <svg width="28" height="28" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
-             stroke-linecap="round" stroke-linejoin="round" fill="none">
-          <line x1="3" y1="6"  x2="21" y2="6"></line>
-          <line x1="3" y1="12" x2="21" y2="12"></line>
-          <line x1="3" y1="18" x2="21" y2="18"></line>
-        </svg>
+      <button class="nav-toggle" aria-label="Toggle menu" type="button">
+        <span></span>
+        <span></span>
+        <span></span>
       </button>
 
       <nav>
         <ul class="nav__links">
-          <li><a href="home.html">Home</a></li>
-          <li><a href="about.html">About Us</a></li>
+          <li><a href="#top">Home</a></li>
+          <li><a href="#about">About Us</a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="testimonials.html">Testimonials</a></li>
         </ul>
@@ -294,18 +590,101 @@
     <div class="hero-content">
       <h1>Mobile Car Detailing in Charlotte</h1>
       <p>Premium detailing delivered to you.</p>
-      <a href="services.html" class="btn">Book Now</a>
+
+      <div class="cta-row">
+        <a href="services.html" class="btn">Book Now</a>
+        <a href="tel:9843328570" class="btn-outline">Get a Quote</a>
+      </div>
+
+      <div class="trust">5-Star Rated • Fully Mobile</div>
     </div>
   </header>
 
+  <!-- NEW ABOUT SECTION (slides up on scroll) -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-grid reveal">
+        <div class="about-card">
+          <span class="about-kicker">About We Detail NC</span>
+          <h2 class="about-title">Premium mobile detailing<br>done right.</h2>
+          <p class="about-text">
+            We bring high-end detailing to your driveway in Charlotte — with a focus on precision, professionalism,
+            and results that actually last. Whether it’s a daily driver or a high-end vehicle, we treat every car like it’s ours.
+          </p>
+          <p class="about-text" style="margin-bottom:0;">
+            Expect clean lines, protected finishes, and a process built around quality — not rushing through jobs.
+          </p>
+
+          <div class="about-points">
+            <div class="point">
+              <span class="dot"></span>
+              <div>
+                <b>Fully Mobile</b>
+                <p>We come to your home or office — simple scheduling, no shop drop-off.</p>
+              </div>
+            </div>
+            <div class="point">
+              <span class="dot"></span>
+              <div>
+                <b>Detail-First Process</b>
+                <p>Safe wash methods, careful interiors, and finish protection that makes sense.</p>
+              </div>
+            </div>
+            <div class="point">
+              <span class="dot"></span>
+              <div>
+                <b>5-Star Experience</b>
+                <p>Clear communication, on-time arrivals, and results you’ll notice immediately.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-side">
+          <div class="stat">
+            <div class="big">5-Star Rated</div>
+            <div class="small">Trusted by Charlotte clients who want a clean, premium finish without the hassle.</div>
+          </div>
+          <div class="stat">
+            <div class="big">Paint Protection</div>
+            <div class="small">From maintenance washes to ceramic protection — we help keep your car looking sharp longer.</div>
+          </div>
+          <div class="stat">
+            <div class="big">Interior Reset</div>
+            <div class="small">Deep cleaning, vacuuming, wipe-downs, and the small details that change everything.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+      // mobile nav
       const toggle = document.querySelector('.nav-toggle');
       const navBar = document.querySelector('.nav');
 
       toggle.addEventListener('click', () => {
         navBar.classList.toggle('open');
       });
+
+      document.querySelectorAll('.nav__links a').forEach(link => {
+        link.addEventListener('click', () => navBar.classList.remove('open'));
+      });
+
+      // slide-up reveal on scroll
+      const revealEls = document.querySelectorAll('.reveal');
+
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.18 });
+
+      revealEls.forEach(el => io.observe(el));
     });
   </script>
 </body>
