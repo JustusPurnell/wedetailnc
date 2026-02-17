@@ -3,47 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Charlotte Mobile Car Detailing | Ceramic Coating & Paint Protection</title>
-  <meta name="description" content="Luxury mobile car detailing, ceramic coating & paint-protection services brought to your driveway anywhere in Charlotte, NC." />
+  <title>Charlotte Mobile Car Detailing | Ceramic Coating & Paint Correction</title>
+  <meta name="description" content="Luxury mobile car detailing, ceramic coating & paint-protection services brought to your driveway anywhere in Chtte, NC." />
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-
-
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "AutoDetailing",
-  "name": "We Detail NC",
-  "url": "https://wedetailnc.com/",
-  "telephone": "+1-984-332-8570",
-  "image": "https://wedetailnc.com/images/detaillogo.png",
-  "description": "Luxury mobile car detailing, ceramic coating & paint-protection services brought to your driveway anywhere in Charlotte, NC.",
-  "priceRange": "$$",
-  "areaServed": [
-    {
-      "@type": "City",
-      "name": "Charlotte",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Charlotte",
-        "addressRegion": "NC",
-        "addressCountry": "US"
-      }
-    }
-  ],
-  "serviceType": [
-    "Mobile Car Detailing",
-    "Interior Detailing",
-    "Exterior Detailing",
-    "Ceramic Coating",
-    "Paint Correction",
-    "Paint Protection"
-  ],
-  "sameAs": [
-    "https://share.google/nRf0XBHYdl2G9DwSW"
-  ]
-}
-</script>
-
 
   <style>
     :root{
@@ -68,9 +30,8 @@
     body{font-family:'Inter',sans-serif;background:var(--clr-dark);color:var(--clr-light);}
     a{text-decoration:none;color:inherit;}
 
-    /* ---------- HERO ---------- */
     header.hero{
-      background:url('images/fire.png') center 65% / cover no-repeat;
+      background:url('images/int.png') center 65% / cover no-repeat;
       position:relative;
       height:100vh;
       min-height:640px;
@@ -99,13 +60,15 @@
       pointer-events:none;
     }
 
-    /* ---------- NAV BAR ---------- */
     .nav{
       position:relative;
       z-index:3;
-      margin:18px auto 0;
-      width:min(1100px, calc(100% - 32px));
-      height:70px;
+
+      margin:18px 16px 0;
+      width:calc(100% - 32px);
+      max-width:none;
+
+      height:78px;
       padding:0 18px;
       display:flex;
       align-items:center;
@@ -119,24 +82,62 @@
       box-shadow:var(--glass-shadow);
     }
 
-    .logo{
-      position:absolute;
-      left:14px;
-      top:50%;
-      transform:translateY(-50%);
-      display:flex;
-      align-items:center;
-      gap:.6rem;
-    }
-    .logo img{height:64px;width:auto;display:block;}
+    /* FIX: logo fits inside the bar (your 225px was blowing it up) */
+ .logo{
+  position:absolute;
+  left:-8px;                 /* closer to the left edge */
+  top:50%;
+  transform:translateY(-50%);
+  display:flex;
+  align-items:center;
+  height:100%;
+}
+
+.logo img{
+  height:70px;               /* fits inside 78px bar */
+  width:auto;
+  display:block;
+  object-fit:contain;
+  transform:scale(1.25);     /* makes the logo itself look bigger */
+  transform-origin:left center;
+}
+
+
 
     .nav__links{
       list-style:none;
-      display:flex;
-      gap:2.25rem;
-      font-weight:600;
-      font-size:.98rem;
+      font-weight:700;
+      font-size:1rem;
       letter-spacing:.2px;
+
+      position:absolute;
+      left:10px; right:10px;
+      top:88px;
+      padding:18px 18px 22px;
+      border-radius:22px;
+
+      background:rgba(20,20,22,.92);
+      border:1px solid rgba(255,255,255,.12);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow:0 22px 60px rgba(0,0,0,.55);
+
+      display:flex;
+      flex-direction:column;
+      gap:1.1rem;
+      text-align:center;
+
+      transform:translateY(-12px);
+      opacity:0;
+      pointer-events:none;
+      transition:.25s ease;
+      z-index:120;
+    }
+
+    .nav.open .nav__links{
+      transform:translateY(0);
+      opacity:1;
+      pointer-events:auto;
     }
 
     .nav__links li a{
@@ -146,20 +147,7 @@
       position:relative;
     }
     .nav__links li a:hover{opacity:1;}
-    .nav__links li a::after{
-      content:"";
-      position:absolute;
-      left:0;
-      bottom:-8px;
-      width:0;
-      height:2px;
-      background:rgba(255,255,255,.75);
-      transition:.25s ease;
-      border-radius:2px;
-    }
-    .nav__links li a:hover::after{width:100%;}
 
-    /* ---------- CALL BUTTONS ---------- */
     .call-btn{
       position:absolute;
       right:14px;
@@ -179,6 +167,7 @@
       font-weight:700;
       color:#fff;
       transition:.25s ease;
+      z-index:125;
     }
     .call-btn:hover{
       background:rgba(255,255,255,.14);
@@ -189,9 +178,8 @@
     .call-desktop{font-size:.92rem;}
     .call-mobile{display:none;width:46px;height:46px;padding:0;justify-content:center;}
 
-    /* ---------- HAMBURGER (NO CIRCLE / NO TAP BUBBLE) ---------- */
     .nav-toggle{
-      display:none;
+      display:flex;
       background:transparent !important;
       border:none !important;
       border-radius:0 !important;
@@ -201,7 +189,7 @@
       margin:0 !important;
 
       position:absolute;
-      right:16px;
+      right:18px;
       top:50%;
       transform:translateY(-50%);
       z-index:130;
@@ -235,7 +223,6 @@
     .nav.open .nav-toggle span:nth-child(2){ opacity:0; }
     .nav.open .nav-toggle span:nth-child(3){ transform:translateY(-8px) rotate(-45deg); }
 
-    /* ---------- HERO CONTENT ---------- */
     .hero-content{
       position:relative;
       z-index:2;
@@ -317,57 +304,40 @@
       letter-spacing:.2px;
     }
 
-    /* ---------- RESPONSIVE ---------- */
+    .stars{
+      display:flex;
+      justify-content:center;
+      gap:4px;
+      color:#f5c518;
+    }
+    .stars svg{
+      width:16px;
+      height:16px;
+      fill:currentColor;
+    }
+
     @media(max-width:900px){
       .hero-content h1{font-size:3.6rem;}
       .hero-content p{font-size:1.2rem;}
-      .nav__links{gap:1.6rem;}
+
+      .logo img{
+        height:56px;
+        transform:scale(1.12);
+      }
     }
 
     @media(max-width:600px){
       header.hero{background-position:center 60%;}
-      .logo img{height:52px;}
 
-      /* UI-only: hide call buttons on mobile */
       .call-desktop,
       .call-mobile{display:none !important;}
 
-      /* show hamburger on mobile */
-      .nav-toggle{display:flex;}
+      .nav-toggle{right:16px;}
 
-      /* mobile menu panel */
-      .nav__links{
-        position:absolute;
-        left:10px; right:10px;
-        top:78px;
-        padding:18px 18px 22px;
-        border-radius:22px;
-
-        background:rgba(20,20,22,.92);
-        border:1px solid rgba(255,255,255,.12);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        box-shadow:0 22px 60px rgba(0,0,0,.55);
-
-        display:flex;
-        flex-direction:column;
-        gap:1.1rem;
-        text-align:center;
-
-        transform:translateY(-12px);
-        opacity:0;
-        pointer-events:none;
-        transition:.25s ease;
-        z-index:120;
+      .logo img{
+        height:50px;
+        transform:scale(1.08);
       }
-
-      .nav.open .nav__links{
-        transform:translateY(0);
-        opacity:1;
-        pointer-events:auto;
-      }
-
-      .nav__links li a::after{display:none;}
 
       .hero-content h1{font-size:2.9rem;}
       .hero-content p{font-size:1.05rem;}
@@ -379,7 +349,7 @@
 <body>
   <header class="hero">
     <div class="nav">
-      <a href="home.html" class="logo"><img src="images/detaillogo.png" alt="We Detail NC logo"></a>
+     
 
       <button class="nav-toggle" aria-label="Toggle menu" type="button">
         <span></span>
@@ -389,50 +359,35 @@
 
       <nav>
         <ul class="nav__links">
-          <li><a href="home.html">Home</a></li>
+         <li><a href="home.html">Home</a></li>
+           <li><a href="services.html">Services</a></li>
+           <li><a href="testimonials.html">Testimonials</a></li>
           <li><a href="about.html">About Us</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="testimonials.html">Testimonials</a></li>
+        
         </ul>
       </nav>
-
-      <a class="call-btn call-desktop" href="tel:9843328570">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-             stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-             style="vertical-align:-3px;">
-          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07
-                   19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.08 4.18
-                   2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72 12.31 12.31 0 0 0 .7 2.81
-                   2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27
-                   a2 2 0 0 1 2.11-.45 12.31 12.31 0 0 0 2.81.7
-                   2 2 0 0 1 1.72 2z"/>
-        </svg>
-        (984) 332-8570
-      </a>
-
-      <a class="call-btn call-mobile" href="tel:9843328570" aria-label="Call">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07
-                   19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.08 4.18
-                   2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72 12.31 12.31 0 0 0 .7 2.81
-                   2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27
-                   a2 2 0 0 1 2.11-.45 12.31 12.31 0 0 0 2.81.7
-                   2 2 0 0 1 1.72 2z"/>
-        </svg>
-      </a>
     </div>
 
     <div class="hero-content">
-      <h1>Mobile Car Detailing in Charlotte</h1>
-      <p>Premium detailing delivered to you.</p>
+      <h1>Mobile Auto Detailing</h1>
+      <h1>Charlotte, NC</h1>
+
+      <p>Luxury detailing delivered to you.</p>
 
       <div class="cta-row">
         <a href="services.html" class="btn">Book Now</a>
-        <a href="tel:9843328570" class="btn-outline">Get a Quote</a>
+        <a href="tel:9199393930" class="btn-outline">Get a Quote</a>
       </div>
 
-      <div class="trust">5-Star Rated • Fully Mobile</div>
+      <div class="trust">
+        <div class="stars" aria-label="5 star rating">
+          <svg viewBox="0 0 24 24"><path d="M12 17.3l6.18 3.7-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.3l6.18 3.7-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.3l6.18 3.7-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.3l6.18 3.7-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.3l6.18 3.7-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -447,6 +402,10 @@
 
       document.querySelectorAll('.nav__links a').forEach(link => {
         link.addEventListener('click', () => navBar.classList.remove('open'));
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!navBar.contains(e.target)) navBar.classList.remove('open');
       });
     });
   </script>
