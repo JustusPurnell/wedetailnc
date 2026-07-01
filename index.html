@@ -142,6 +142,41 @@
     .nav-links a { color: var(--white80); transition: color .2s; }
     .nav-links a:hover { color: var(--white); }
 
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: rgba(10,10,11,0.98);
+      border: 1px solid var(--white12);
+      border-radius: 12px;
+      min-width: 190px;
+      padding: 10px 0;
+      list-style: none;
+      z-index: 999;
+    }
+
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+
+    .dropdown-menu li a {
+      display: block;
+      padding: 10px 18px;
+      color: var(--white80);
+      font-size: 0.85rem;
+      white-space: nowrap;
+    }
+
+    .dropdown-menu li a:hover {
+      background: var(--white06);
+      color: var(--red);
+    }
+
     .nav-cta {
       background: var(--red);
       color: #fff;
@@ -687,34 +722,56 @@
     .footer-inner {
       max-width: 1100px;
       margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1rem;
     }
 
     footer a { color: var(--white40); transition: color .2s; }
     footer a:hover { color: var(--white); }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
 
     .footer-brand {
       font-family: 'Bebas Neue', sans-serif;
       font-size: 1.2rem;
       letter-spacing: 2px;
       color: var(--white);
+      margin-bottom: 0.8rem;
     }
     .footer-brand span { color: var(--red); }
 
-    .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    .footer-desc {
+      max-width: 320px;
+      line-height: 1.7;
+    }
+
+    .footer-heading {
+      color: var(--white);
+      font-weight: 700;
+      font-size: 0.78rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 0.9rem;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
 
     .footer-bottom {
       max-width: 1100px;
-      margin: 1.5rem auto 0;
+      margin: 1.8rem auto 0;
       padding-top: 1rem;
       border-top: 1px solid var(--white06);
       font-size: 0.78rem;
       color: var(--white40);
       text-align: center;
+      line-height: 1.7;
     }
 
     /* ── SERVICE AREAS ── */
@@ -785,7 +842,9 @@
       .stat-label { font-size: 0.7rem; }
       .why-inner { grid-template-columns: 1fr; gap: 2rem; }
       .areas-grid { grid-template-columns: 1fr; }
-      footer .footer-inner { flex-direction: column; text-align: center; }
+      .footer-grid { grid-template-columns: 1fr; text-align: center; }
+      .footer-desc { margin: 0 auto; }
+      .footer-links { align-items: center; }
     }
 
     @media (max-width: 480px) {
@@ -809,7 +868,20 @@
     <ul class="nav-links">
       <li><a href="home.html">Home</a></li>
       <li><a href="services.html">Services</a></li>
-      <li><a href="testimonials.html">Reviews</a></li>
+      <li class="dropdown">
+        <a href="service-areas.html">Service Areas ▾</a>
+        <ul class="dropdown-menu">
+          <li><a href="charlotte.html">Charlotte</a></li>
+          <li><a href="ballantyne.html">Ballantyne</a></li>
+          <li><a href="southpark.html">SouthPark</a></li>
+          <li><a href="huntersville.html">Huntersville</a></li>
+          <li><a href="matthews.html">Matthews</a></li>
+          <li><a href="mint-hill.html">Mint Hill</a></li>
+          <li><a href="concord.html">Concord</a></li>
+          <li><a href="pineville.html">Pineville</a></li>
+          <li><a href="south-end.html">South End</a></li>
+        </ul>
+      </li>
       <li><a href="about.html">About</a></li>
     </ul>
     <a href="services.html" class="nav-cta">Book Now</a>
@@ -822,7 +894,7 @@
   <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile menu">
     <a href="home.html">Home</a>
     <a href="services.html">Services</a>
-    <a href="testimonials.html">Reviews</a>
+    <a href="service-areas.html">Service Areas</a>
     <a href="about.html">About</a>
     <a href="services.html" class="mob-cta">Book Now →</a>
   </div>
@@ -1122,16 +1194,50 @@
   <!-- FOOTER -->
   <footer role="contentinfo">
     <div class="footer-inner">
-      <div class="footer-brand">We<span>Detail</span> Charlotte</div>
-      <div>Charlotte, NC · Mobile Car Detailing · Ceramic Coating · Paint Correction</div>
-      <div class="footer-links">
-        <a href="privacypolicy.html">Privacy Policy</a>
-        <a href="services.html">Services</a>
-        <a href="about.html">About</a>
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">We<span>Detail</span> Charlotte</div>
+          <p class="footer-desc">Premium mobile car detailing, ceramic coating, paint correction, and interior detailing throughout Charlotte, NC and surrounding areas.</p>
+        </div>
+
+        <div>
+          <div class="footer-heading">Services</div>
+          <div class="footer-links">
+            <a href="services.html">Full Detail</a>
+            <a href="ceramiccoating.html">Ceramic Coating</a>
+            <a href="services.html">Paint Correction</a>
+            <a href="services.html">Interior Detail</a>
+            <a href="services.html">Exterior Detail</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-heading">Service Areas</div>
+          <div class="footer-links">
+            <a href="charlotte.html">Charlotte</a>
+            <a href="ballantyne.html">Ballantyne</a>
+            <a href="southpark.html">SouthPark</a>
+            <a href="huntersville.html">Huntersville</a>
+            <a href="matthews.html">Matthews</a>
+            <a href="concord.html">Concord</a>
+            <a href="pineville.html">Pineville</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-heading">Company</div>
+          <div class="footer-links">
+            <a href="about.html">About</a>
+            <a href="services.html">Book Now</a>
+            <a href="tel:9195272123">Call (919) 527-2123</a>
+            <a href="mailto:info@wedetailnc.com">info@wedetailnc.com</a>
+            <a href="privacypolicy.html">Privacy Policy</a>
+          </div>
+        </div>
       </div>
     </div>
     <div class="footer-bottom">
-      © 2026 WeDetail Charlotte. All rights reserved. Mobile car detailing serving Charlotte, NC and surrounding areas.
+      © 2026 WeDetail Charlotte. All rights reserved. Mobile car detailing serving Charlotte, NC, Ballantyne, SouthPark, Matthews, Huntersville, Concord, Pineville, and surrounding areas.
     </div>
   </footer>
 
@@ -1159,7 +1265,7 @@
     });
 
     // FAQ accordion
-    document.querySelectorAll('.faq-question').forEach(btn => {
+    document.querySelectorAll('.faq-question').forEach(btn=> {
       btn.addEventListener('click', () => {
         const item = btn.closest('.faq-item');
         const isOpen = item.classList.contains('open');
