@@ -3,22 +3,40 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Detailing Services Charlotte NC | Pricing & Packages | WeDetail</title>
-  <meta name="description" content="View our mobile car detailing packages in Charlotte, NC. Interior Detail, Reset & Deluxe packages, plus Maintenance plans. We come to you." />
+  <title>Paint Correction & Ceramic Coating Charlotte NC | Pricing | WeDetail</title>
+  <meta name="description" content="Paint correction and ceramic coating in Charlotte, NC. 1-step and 2-step correction, 5-year ceramic coating, and bundle packages. Mobile service, we come to you." />
+  <meta name="keywords" content="paint correction Charlotte NC, ceramic coating Charlotte, 5 year ceramic coating, swirl removal Charlotte, mobile paint correction" />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://wedetailcharlotte.com/services.html" />
+  <link rel="canonical" href="https://wedetailnc.com/paint-correction-ceramic-coating-charlotte-nc.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Paint Correction & Ceramic Coating Charlotte NC | WeDetail" />
+  <meta property="og:description" content="1-step & 2-step paint correction, 5-year ceramic coating, and bundle packages. Mobile service brought to your driveway in Charlotte, NC." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://wedetailnc.com/paint-correction-ceramic-coating-charlotte-nc.html" />
+  <meta property="og:image" content="https://wedetailnc.com/images/int.png" />
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    "name": "WeDetail Charlotte Detailing Services",
+    "name": "WeDetail Paint Correction & Ceramic Coating",
     "itemListElement": [
-      {"@type":"ListItem","position":1,"name":"Interior Detail Package","description":"Interior-only detail starting at $199"},
-      {"@type":"ListItem","position":2,"name":"Reset Package","description":"Most popular full interior & exterior package starting at $269"},
-      {"@type":"ListItem","position":3,"name":"Deluxe Package","description":"Best value package starting at $349"},
-      {"@type":"ListItem","position":4,"name":"Maintenance Plan","description":"Monthly membership starting at $199/mo"},
-      {"@type":"ListItem","position":5,"name":"Paint Correction & Ceramic Coating","description":"Paint correction and ceramic coating options"}
+      {"@type":"ListItem","position":1,"name":"1-Step Paint Correction","description":"Single-stage machine polish removing light swirls and scratches, starting at $419"},
+      {"@type":"ListItem","position":2,"name":"5-Year Ceramic Coating","description":"Exterior-only prep and ceramic coating application, starting at $579"},
+      {"@type":"ListItem","position":3,"name":"1-Step Correction + Ceramic Coating Bundle","description":"Bundled package, starting at $899"},
+      {"@type":"ListItem","position":4,"name":"2-Step Paint Correction + Ceramic Coating","description":"Multi-stage correction with ceramic coating, starting at $1,299"}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://wedetailnc.com/home.html" },
+      { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://wedetailnc.com/services.html" },
+      { "@type": "ListItem", "position": 3, "name": "Paint Correction & Ceramic Coating", "item": "https://wedetailnc.com/paint-correction-ceramic-coating-charlotte-nc.html" }
     ]
   }
   </script>
@@ -217,12 +235,23 @@
       text-align: center;
       padding: 0 24px;
       animation: fadeUp .9s ease both;
+      max-width: 760px;
     }
 
     @keyframes fadeUp {
       from { opacity:0; transform: translateY(24px); }
       to   { opacity:1; transform: translateY(0); }
     }
+
+    .breadcrumb {
+      font-size: 0.82rem;
+      color: var(--white40);
+      margin-bottom: 1rem;
+      animation: fadeUp .9s .05s ease both;
+    }
+    .breadcrumb a { color: var(--white40); transition: color .2s; }
+    .breadcrumb a:hover { color: var(--red); }
+    .breadcrumb span { margin: 0 6px; }
 
     .hero-badge {
       display: inline-flex;
@@ -243,8 +272,8 @@
 
     .hero h1 {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(3rem, 8vw, 6rem);
-      line-height: 0.95;
+      font-size: clamp(2.6rem, 7vw, 5.2rem);
+      line-height: 0.98;
       letter-spacing: 2px;
       text-transform: uppercase;
       margin-bottom: 1rem;
@@ -256,7 +285,7 @@
     .hero p {
       font-size: clamp(0.95rem, 2vw, 1.15rem);
       color: var(--white80);
-      max-width: 480px;
+      max-width: 540px;
       margin: 0 auto;
       line-height: 1.6;
       animation: fadeUp .9s .3s ease both;
@@ -264,14 +293,14 @@
 
     /* ── PACKAGES ── */
     .packages-wrap {
-      max-width: 1140px;
+      max-width: 1180px;
       margin: 0 auto;
-      padding: 5rem 1.5rem 6rem;
+      padding: 5rem 1.5rem 3rem;
     }
 
     .packages-header {
       text-align: center;
-      margin-bottom: 3.5rem;
+      margin-bottom: 2.2rem;
     }
 
     .section-label {
@@ -294,15 +323,41 @@
     .section-sub {
       color: var(--white40);
       font-size: 1rem;
-      max-width: 520px;
+      max-width: 620px;
       margin: 0 auto;
       line-height: 1.6;
     }
 
+    /* ── INTRO GUIDE ── */
+    .guide-bar {
+      max-width: 900px;
+      margin: 0 auto 3.5rem;
+      background: var(--dark2);
+      border: 1px solid var(--white12);
+      border-radius: 18px;
+      padding: 1.6rem 1.8rem;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.4rem;
+    }
+
+    .guide-item { display: flex; gap: 0.9rem; align-items: flex-start; }
+    .guide-icon {
+      width: 30px; height: 30px;
+      border-radius: 50%;
+      background: rgba(230,57,70,0.15);
+      border: 1px solid rgba(230,57,70,0.4);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      font-size: 0.9rem;
+    }
+    .guide-title { font-weight: 700; font-size: 0.92rem; margin-bottom: 2px; }
+    .guide-desc { font-size: 0.84rem; color: var(--white40); line-height: 1.5; }
+
     /* ── SERVICE CARDS GRID ── */
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 1.5rem;
     }
 
@@ -323,43 +378,35 @@
       box-shadow: 0 20px 60px rgba(0,0,0,0.5);
     }
 
-    /* Featured card */
     .service-card.featured {
       border-color: rgba(230,57,70,0.45);
       box-shadow: 0 0 0 1px rgba(230,57,70,0.2);
     }
+    .service-card.featured:hover { border-color: rgba(230,57,70,0.7); }
 
-    .service-card.featured:hover {
-      border-color: rgba(230,57,70,0.7);
-    }
-
-    /* Gold card */
     .service-card.premium {
       border-color: rgba(245,197,24,0.4);
       box-shadow: 0 0 0 1px rgba(245,197,24,0.15);
     }
 
-    /* ── CARD TOP BAR (replaces image) ── */
+    /* ── CARD TOP BAR (no image, per site convention) ── */
     .card-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 0.75rem;
-      padding: 1.5rem 1.4rem 1.2rem;
+      padding: 1.4rem 1.3rem 1.1rem;
       border-bottom: 1px solid var(--white12);
-      flex-wrap: wrap;
     }
 
     .card-tag {
+      display: inline-block;
       background: var(--white06);
       border: 1px solid var(--white12);
       padding: 4px 12px;
       border-radius: 999px;
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       font-weight: 700;
       letter-spacing: 0.5px;
       color: var(--white80);
       white-space: nowrap;
+      margin-bottom: 0.8rem;
     }
 
     .card-tag.tag-red {
@@ -374,17 +421,45 @@
       color: var(--gold);
     }
 
+    .price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+
     .card-price {
-      font-size: 1.05rem;
+      font-size: 1.5rem;
       font-weight: 800;
       color: var(--white);
       letter-spacing: 0.2px;
       white-space: nowrap;
     }
 
+    .card-price-was {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--white40);
+      text-decoration: line-through;
+      white-space: nowrap;
+    }
+
+    .save-badge {
+      display: inline-block;
+      margin-top: 0.5rem;
+      background: rgba(230,57,70,0.16);
+      border: 1px solid rgba(230,57,70,0.45);
+      color: #ff8992;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.3px;
+      padding: 3px 10px;
+      border-radius: 999px;
+    }
+
     /* ── CARD BODY ── */
     .card-body {
-      padding: 1.4rem 1.4rem 1.5rem;
+      padding: 1.3rem 1.3rem 1.4rem;
       display: flex;
       flex-direction: column;
       flex: 1;
@@ -393,23 +468,19 @@
 
     .card-name {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.6rem;
+      font-size: 1.4rem;
       letter-spacing: 1px;
-      line-height: 1;
+      line-height: 1.05;
     }
 
-  .card-desc {
-  font-size: 0.88rem;
-  color: var(--white40);
-  line-height: 1.55;
-  margin-top:  0.3rem;
-}
-
-    /* divider */
-    .card-divider {
-      height: 1px;
-      background: var(--white12);
+    .card-desc {
+      font-size: 0.86rem;
+      color: var(--white40);
+      line-height: 1.55;
+      margin-top: 0.3rem;
     }
+
+    .card-divider { height: 1px; background: var(--white12); }
 
     .card-list {
       list-style: none;
@@ -423,86 +494,53 @@
       display: flex;
       align-items: flex-start;
       gap: 0.6rem;
-      font-size: 0.88rem;
+      font-size: 0.84rem;
       color: var(--white80);
-      line-height: 1.45;
+      line-height: 1.4;
     }
 
     .card-list li .check {
-      width: 16px;
-      height: 16px;
+      width: 16px; height: 16px;
       border-radius: 50%;
       background: rgba(230,57,70,0.15);
       border: 1px solid rgba(230,57,70,0.35);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      margin-top: 1px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; margin-top: 1px;
     }
+    .card-list li .check svg { width: 8px; height: 8px; stroke: var(--red); fill: none; stroke-width: 3; }
 
-    .card-list li .check svg {
-      width: 8px; height: 8px;
-      stroke: var(--red);
-      fill: none;
-      stroke-width: 3;
-    }
-
-    .card-list li.inherit-item .check {
-      background: rgba(255,255,255,0.06);
-      border-color: var(--white12);
-    }
+    .card-list li.inherit-item .check { background: rgba(255,255,255,0.06); border-color: var(--white12); }
     .card-list li.inherit-item .check svg { stroke: var(--white40); }
     .card-list li.inherit-item { color: var(--white40); }
 
-    /* CTA */
-    .card-cta {
-      margin-top: auto;
-    }
+    .card-cta { margin-top: auto; }
 
     .btn-book {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      width: 100%;
-      padding: 0.9rem 1.2rem;
-      background: var(--red);
-      color: #fff;
-      border-radius: 999px;
-      font-weight: 700;
-      font-size: 0.95rem;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      width: 100%; padding: 0.85rem 1.1rem;
+      background: var(--red); color: #fff;
+      border-radius: 999px; font-weight: 700; font-size: 0.92rem;
       letter-spacing: 0.3px;
       transition: background .2s, transform .2s, box-shadow .2s;
       box-shadow: 0 6px 20px rgba(230,57,70,0.35);
     }
-    .btn-book:hover {
-      background: var(--red-hot);
-      transform: translateY(-1px);
-      box-shadow: 0 10px 28px rgba(230,57,70,0.5);
-    }
+    .btn-book:hover { background: var(--red-hot); transform: translateY(-1px); box-shadow: 0 10px 28px rgba(230,57,70,0.5); }
 
     .btn-book.btn-outline {
-      background: var(--white06);
-      border: 1px solid var(--white12);
-      box-shadow: none;
+      background: var(--white06); border: 1px solid var(--white12); box-shadow: none;
     }
-    .btn-book.btn-outline:hover {
-      background: var(--white12);
-      box-shadow: none;
-    }
+    .btn-book.btn-outline:hover { background: var(--white12); box-shadow: none; }
 
-    /* ── POPULAR BADGE ── */
     .popular-badge {
       position: absolute;
       top: -1px; right: 20px;
       background: var(--red);
       color: #fff;
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       font-weight: 800;
-      letter-spacing: 1.5px;
+      letter-spacing: 1.3px;
       text-transform: uppercase;
-      padding: 5px 14px;
+      padding: 5px 12px;
       border-radius: 0 0 10px 10px;
       z-index: 3;
     }
@@ -521,29 +559,27 @@
       text-align: center;
       flex-wrap: wrap;
     }
-
-    .note-bar p {
-      font-size: 0.9rem;
-      color: var(--white60);
-      line-height: 1.6;
-    }
-
+    .note-bar p { font-size: 0.9rem; color: var(--white60); line-height: 1.6; }
     .note-bar strong { color: var(--white); }
-
     .note-bar a {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: var(--red);
-      color: #fff;
-      padding: 0.55rem 1.2rem;
-      border-radius: 999px;
-      font-weight: 700;
-      font-size: 0.88rem;
-      transition: background .2s;
-      white-space: nowrap;
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--red); color: #fff;
+      padding: 0.55rem 1.2rem; border-radius: 999px;
+      font-weight: 700; font-size: 0.88rem;
+      transition: background .2s; white-space: nowrap;
     }
     .note-bar a:hover { background: var(--red-hot); }
+
+    /* ── FAQ ── */
+    .faq-section {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 4.5rem 1.5rem 5rem;
+    }
+    .faq-item { border-bottom: 1px solid var(--white12); padding: 1.5rem 0; }
+    .faq-item:first-child { padding-top: 0; }
+    .faq-q { font-size: 1rem; font-weight: 700; margin-bottom: 0.6rem; }
+    .faq-a { font-size: 0.92rem; color: var(--white60); line-height: 1.7; max-width: 700px; }
 
     /* ── FOOTER ── */
     footer {
@@ -553,54 +589,34 @@
       font-size: 0.85rem;
       color: var(--white40);
     }
-
     .footer-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1rem;
+      max-width: 1100px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
     }
-
     footer a { color: var(--white40); transition: color .2s; }
     footer a:hover { color: var(--white); }
-
-    .footer-brand {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.2rem;
-      letter-spacing: 2px;
-      color: var(--white);
-    }
+    .footer-brand { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; letter-spacing: 2px; color: var(--white); }
     .footer-brand span { color: var(--red); }
-
     .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
-
     .footer-bottom {
-      max-width: 1100px;
-      margin: 1.2rem auto 0;
-      padding-top: 1rem;
-      border-top: 1px solid var(--white06);
-      font-size: 0.78rem;
-      color: var(--white40);
-      text-align: center;
+      max-width: 1100px; margin: 1.2rem auto 0; padding-top: 1rem;
+      border-top: 1px solid var(--white06); font-size: 0.78rem; color: var(--white40); text-align: center;
     }
 
     /* ── RESPONSIVE ── */
-    @media (max-width: 900px) {
+    @media (max-width: 1000px) {
       .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .guide-bar { grid-template-columns: 1fr; }
     }
-
     @media (max-width: 768px) {
       .nav-links, .nav-cta { display: none; }
       .nav-toggle { display: flex; }
       footer .footer-inner { flex-direction: column; text-align: center; }
     }
-
     @media (max-width: 560px) {
       .services-grid { grid-template-columns: 1fr; }
-      .packages-wrap { padding: 2rem 1rem 4rem; }
+      .packages-wrap { padding: 2rem 1rem 2rem; }
       .packages-header { margin-bottom: 1.5rem; }
     }
   </style>
@@ -663,47 +679,83 @@
 
   <!-- HERO -->
   <header class="hero" role="banner">
-    <div class="hero-bg" role="img" aria-label="Professional mobile car detailing Charlotte NC"></div>
+    <div class="hero-bg" role="img" aria-label="Paint correction and ceramic coating mobile detailing Charlotte NC"></div>
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      <div class="hero-badge">Charlotte, NC · Mobile Detailing</div>
-      <h1>Our <em>Packages</em><br>& Pricing</h1>
-      <p>Premium detailing brought to your driveway. Pick your package and we'll come to you.</p>
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+      
+      </nav>
+      <div class="hero-badge">Charlotte, NC</div>
+      <h1>Paint Correction &<br><em>Ceramic Coating</em></h1>
+      <p>Remove imperfections, add long-term protection, or do both — four options built around what your paint actually needs.</p>
     </div>
   </header>
 
   <!-- PACKAGES -->
   <main class="packages-wrap">
     <div class="packages-header">
-      <div class="section-label">What We Offer</div>
-      <h2 class="section-title">Detailing Packages</h2>
+      <div class="section-label">Choose Your Option</div>
+      <h2 class="section-title">Correction & Coating</h2>
+      <p class="section-sub">Not sure which one fits your car? Here's the short version.</p>
+    </div>
+
+    <div class="guide-bar">
+      <div class="guide-item">
+        <div class="guide-icon" aria-hidden="true">✦</div>
+        <div>
+          <div class="guide-title">Paint has swirls or scratches?</div>
+          <div class="guide-desc">Start with correction. It removes what's already there before anything is sealed in.</div>
+        </div>
+      </div>
+      <div class="guide-item">
+        <div class="guide-icon" aria-hidden="true">🛡️</div>
+        <div>
+          <div class="guide-title">Paint already looks good?</div>
+          <div class="guide-desc">Go straight to ceramic coating for long-term protection and easier upkeep.</div>
+        </div>
+      </div>
+      <div class="guide-item">
+        <div class="guide-icon" aria-hidden="true">✓</div>
+        <div>
+          <div class="guide-title">Want both, done right?</div>
+          <div class="guide-desc">Bundle correction and coating together — correcting first gives the coating a cleaner surface to bond to.</div>
+        </div>
+      </div>
+      <div class="guide-item">
+        <div class="guide-icon" aria-hidden="true">⭑</div>
+        <div>
+          <div class="guide-title">Deeper scratches or oxidation?</div>
+          <div class="guide-desc">2-step correction goes further than 1-step, for paint that needs more work before coating.</div>
+        </div>
+      </div>
     </div>
 
     <div class="services-grid">
 
-      <!-- INTERIOR DETAIL -->
+      <!-- 1-STEP CORRECTION -->
       <article class="service-card">
         <div class="card-top">
-          <span class="card-tag">Interior Only</span>
-          <span class="card-price">From $199</span>
+          <span class="card-tag">Correction Only</span>
+          <div class="price-row">
+            <span class="card-price">$419</span>
+          </div>
         </div>
         <div class="card-body">
           <div>
-            <div class="card-name">Interior Detail</div>
-            <div class="card-desc">A deep clean for the inside of your vehicle — perfect if the outside is already in good shape.</div>
+            <div class="card-name">1-Step Paint Correction</div>
+            <div class="card-desc">A single-stage machine polish that removes light swirl marks and shallow scratches.</div>
           </div>
           <div class="card-divider"></div>
-          <ul class="card-list" aria-label="Interior Detail package includes">
-            <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Full interior vacuum</li>
-            <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Interior air blowout</li>
-            <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Interior Shampoo</li>
-            <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Dash, cup holders & plastic trim</li>
-            <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Leather & vinyl cleaned</li>
-            <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Windows cleaned (interior)</li>
-            <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Floor mats cleaned</li>
+          <ul class="card-list" aria-label="1-Step Paint Correction includes">
+            <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Prewash & paint decontamination</li>
+            <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>1-step machine polish</li>
+            <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Removes light swirls & shallow scratches</li>
+            <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Wheel & tire cleaning</li>
+            <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Streak-free glass</li>
+            <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Door jambs wiped down</li>
           </ul>
           <div class="card-cta">
-            <a href="reset.html" class="btn-book" aria-label="Book Interior Detail Package">
+            <a href="Elite.html" class="btn-book" aria-label="Book 1-Step Paint Correction">
               Book Now
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
@@ -711,31 +763,62 @@
         </div>
       </article>
 
-      <!-- RESET -->
+      <!-- CERAMIC COATING ONLY -->
+      <article class="service-card">
+        <div class="card-top">
+          <span class="card-tag tag-gold">Coating Only</span>
+          <div class="price-row">
+            <span class="card-price">$579</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div>
+            <div class="card-name">5-Year Ceramic Coating</div>
+            <div class="card-desc">Exterior-only prep and application — for paint that's already in good condition.</div>
+          </div>
+          <div class="card-divider"></div>
+          <ul class="card-list" aria-label="5-Year Ceramic Coating includes">
+            <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Prewash, clay bar & IPA wipe-down</li>
+            <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Professional-grade 5-year ceramic coating</li>
+            <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Hydrophobic water beading</li>
+            <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>UV & chemical resistance</li>
+            <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Enhanced gloss finish</li>
+            <li class="inherit-item"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Exterior only — no paint correction</li>
+          </ul>
+          <div class="card-cta">
+            <a href="ceramiccoating.html" class="btn-book" aria-label="Book 5-Year Ceramic Coating">
+              Book Now
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- BUNDLE: 1-STEP + COATING -->
       <article class="service-card featured">
-        <div class="popular-badge">Most Popular</div>
+        <div class="popular-badge">Best Value</div>
         <div class="card-top">
-          <span class="card-tag tag-red">Most Popular</span>
-          <span class="card-price">From $269</span>
+          <span class="card-tag tag-red">Bundle & Save</span>
+          <div class="price-row">
+            <span class="card-price-was">$998</span>
+            <span class="card-price">$899</span>
+          </div>
+          <span class="save-badge">Save $99</span>
         </div>
         <div class="card-body">
           <div>
-            <div class="card-name">Reset Package</div>
-            <div class="card-desc">Our most popular choice — a full interior and exterior reset to get your car looking clean and refreshed.</div>
+            <div class="card-name">1-Step Correction + Coating</div>
+            <div class="card-desc">Correct the paint, then seal it in. Bundled together for less than booking separately.</div>
           </div>
           <div class="card-divider"></div>
-          <ul class="card-list" aria-label="Reset package includes">
-            <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Interior Air Blowout</li>
-            <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Interior Shampoo</li>
-            <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Dash, cup holders & plastic trim</li>
-            <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Deep Vacuum</li>
-            <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Windows Cleaned</li>
-            <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Exterior Foam Bath & Hand Wash</li>
-            <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Wheels & Tires Deep Cleaned</li>
-            <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Tire Shine</li>
+          <ul class="card-list" aria-label="1-Step Correction plus Coating bundle includes">
+            <li class="inherit-item"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Everything in 1-Step Correction +</li>
+            <li class="inherit-item"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Everything in 5-Year Ceramic Coating</li>
+            <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Correction done before coating for a cleaner bond</li>
+            <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>One appointment, done in one visit</li>
           </ul>
           <div class="card-cta">
-            <a href="reset.html" class="btn-book" aria-label="Book Reset Package">
+            <a href="ceramiccoating.html" class="btn-book" aria-label="Book 1-Step Correction plus Ceramic Coating bundle">
               Book Now
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
@@ -743,82 +826,31 @@
         </div>
       </article>
 
-      <!-- DELUXE -->
-      <article class="service-card">
-        <div class="card-top">
-          <span class="card-tag tag-gold">Best Value</span>
-          <span class="card-price">From $349</span>
-        </div>
-        <div class="card-body">
-          <div>
-            <div class="card-name">Deluxe Package</div>
-            <div class="card-desc">Deep decontamination and ceramic wax for a gloss that lasts.</div>
-          </div>
-          <div class="card-divider"></div>
-          <ul class="card-list" aria-label="Deluxe package includes">
-            <li class="inherit-item"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Everything in Reset +</li>
-            <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Paint decontamination</li>
-            <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Claybar treatment</li>
-            <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Buff-on ceramic wax</li>
-            <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Steam cleaning</li>
-          </ul>
-          <div class="card-cta">
-            <a href="reset.html" class="btn-book" aria-label="Book Deluxe Package">
-              Book Now
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </a>
-          </div>
-        </div>
-      </article>
-
-      <!-- MAINTENANCE -->
-      <article class="service-card">
-        <div class="card-top">
-          <span class="card-tag">Membership</span>
-          <span class="card-price">$199/mo</span>
-        </div>
-        <div class="card-body">
-          <div>
-            <div class="card-name">Maintenance Plan</div>
-            <div class="card-desc">Ongoing upkeep with priority booking. Keep your car showroom-ready year-round.</div>
-          </div>
-          <div class="card-divider"></div>
-          <ul class="card-list" aria-label="Maintenance plan includes">
-            <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Weekly, bi-weekly, or monthly</li>
-            <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Exterior + interior upkeep</li>
-            <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Flexible scheduling</li>
-            <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Priority access & booking</li>
-          </ul>
-          <div class="card-cta">
-            <a href="maintain.html" class="btn-book btn-outline" aria-label="Book Maintenance Plan">
-              Learn More
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </a>
-          </div>
-        </div>
-      </article>
-
-      <!-- PAINT CORRECTION & CERAMIC COATING -->
+      <!-- 2-STEP + COATING -->
       <article class="service-card premium">
         <div class="card-top">
-          <span class="card-tag tag-gold">Paint Correction & Coating</span>
-          <span class="card-price">4 Options</span>
+          <span class="card-tag tag-gold">Most Thorough</span>
+          <div class="price-row">
+            <span class="card-price">$1,299</span>
+          </div>
         </div>
         <div class="card-body">
           <div>
-            <div class="card-name">Paint Correction & Ceramic Coating</div>
-            <div class="card-desc">Remove imperfections or protect your paint long-term — see which option fits your car.</div>
+            <div class="card-name">2-Step Correction + Coating</div>
+            <div class="card-desc">Multi-stage correction for deeper scratches and oxidation, finished with a 5-year ceramic coating.</div>
           </div>
           <div class="card-divider"></div>
-          <ul class="card-list" aria-label="Paint correction and ceramic coating overview">
-            <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Removes swirls & light scratches</li>
-            <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Long-term ceramic protection</li>
-            <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Mobile application, done at your location</li>
-            <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Multiple protection levels available</li>
+          <ul class="card-list" aria-label="2-Step Correction plus Coating includes">
+            <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Multi-stage machine polish</li>
+            <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Removes deeper scratches & oxidation</li>
+            <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Maximum gloss & clarity before coating</li>
+            <li class="inherit-item"><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>5-Year ceramic coating included</li>
+            <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Wheel & tire cleaning</li>
+            <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Streak-free glass & jambs wiped</li>
           </ul>
           <div class="card-cta">
-            <a href="paint-correction-ceramic-coating-charlotte-nc.html" class="btn-book btn-outline" aria-label="Learn more about paint correction and ceramic coating">
-              Learn More
+            <a href="Elite.html" class="btn-book" aria-label="Book 2-Step Correction plus Ceramic Coating">
+              Book Now
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
           </div>
@@ -829,18 +861,41 @@
 
     <!-- NOTE BAR -->
     <div class="note-bar" role="note">
-      <p><strong>Not sure which package is right for you?</strong> Prices vary by vehicle size and condition. Send us a few photos for an exact quote — we'll respond fast.</p>
-      <a href="tel:9195272123" aria-label="Call WeDetail Charlotte for a quote">
+      <p><strong>Not sure how much correction your paint needs?</strong> Send us a few photos in good lighting and we'll recommend the right option before you book.</p>
+      <a href="tel:9195272123" aria-label="Call WeDetail for a recommendation">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.12 2.2 2 2 0 012.11 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.09a16 16 0 006 6l.45-.45a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
         Get a Quote
       </a>
     </div>
   </main>
 
+  <!-- FAQ -->
+  <section class="faq-section" aria-labelledby="faq-heading">
+    <div class="section-label">Common Questions</div>
+    <h2 class="section-title" id="faq-heading" style="margin-bottom:2rem;">Correction & Coating FAQs</h2>
+
+    <div class="faq-item">
+      <div class="faq-q">What's the difference between 1-step and 2-step correction?</div>
+      <div class="faq-a">1-step correction is a single machine polish pass that removes light swirl marks and shallow scratches. 2-step correction adds an additional compounding stage first, which tackles deeper scratches and oxidation before the finishing polish — it takes longer but removes more.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Do I need paint correction before ceramic coating?</div>
+      <div class="faq-a">Not always. If your paint is already in good shape, coating alone is enough. If there are visible swirls, scratches, or oxidation, we recommend correcting first — the coating seals in whatever condition the paint is in when it's applied, so fixing imperfections first gives you a better long-term result.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Why is the bundle cheaper than booking both separately?</div>
+      <div class="faq-a">Booking correction and coating together saves setup and prep time versus two separate appointments, and we pass that savings on directly — the 1-Step Correction + Coating bundle is $899 versus $998 if booked as two separate services.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How long does ceramic coating last?</div>
+      <div class="faq-a">Our ceramic coating is rated for 5 years with proper maintenance. Regular washing with pH-neutral soap and avoiding automatic brush car washes will help it last its full lifespan.</div>
+    </div>
+  </section>
+
   <!-- FOOTER -->
   <footer role="contentinfo">
     <div class="footer-inner">
-      <div class="footer-brand">We<span>Detail</span> Charlotte</div>
+      <div class="footer-brand">We<span>Detail</span></div>
       <div>Charlotte, NC · Mobile Car Detailing · Ceramic Coating · Paint Correction</div>
       <div class="footer-links">
         <a href="privacypolicy.html">Privacy Policy</a>
@@ -849,18 +904,15 @@
       </div>
     </div>
     <div class="footer-bottom">
-      © 2025 WeDetail Charlotte. All rights reserved. Mobile car detailing serving Charlotte, NC and surrounding areas.
+      © 2026 WeDetail. All rights reserved. Mobile car detailing serving Charlotte, NC and surrounding areas.
     </div>
   </footer>
 
   <script>
-    // Nav scroll
     const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => {
       nav.classList.toggle('scrolled', window.scrollY > 40);
     });
-
-    // Mobile menu
     const toggle = document.getElementById('navToggle');
     const menu = document.getElementById('mobileMenu');
     toggle.addEventListener('click', () => {
