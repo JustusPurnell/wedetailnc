@@ -567,7 +567,7 @@
 
           <div class="success" id="success">
             <h3>Application received.</h3>
-            <p>Connect the form submit handler to GoHighLevel or your webhook before running traffic.</p>
+            <p>Thanks — your information was submitted successfully.</p>
           </div>
         </div>
       </div>
@@ -641,23 +641,43 @@
       const data = Object.fromEntries(new FormData(form).entries());
       console.log("Lead:", data);
 
-      /*
-        CONNECT TO YOUR CRM HERE.
+      const submitButton = form.querySelector('button[type="submit"]');
+      const originalButtonText = submitButton.textContent;
 
-        Example:
+      submitButton.disabled = true;
+      submitButton.textContent = "Sending...";
 
-        await fetch("https://services.leadconnectorhq.com/hooks/GnjodVBgcAVDQqpCineF/webhook-trigger/70e01ee8-90a2-4adc-a1df-f3124a9af750", {
-          method: "POST",
-          headers: {"Content-Type": "application/json"},
-          body: JSON.stringify(data)
-        });
+      try {
+        const response = await fetch(
+          "https://services.leadconnectorhq.com/hooks/GnjodVBgcAVDQqpCineF/webhook-trigger/70e01ee8-90a2-4adc-a1df-f3124a9af750",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+          }
+        );
 
-        You can use a GoHighLevel inbound webhook,
-        Zapier, Make, or your own backend.
-      */
+        if (!response.ok) {
+          throw new Error(`Webhook returned ${response.status}`);
+        }
 
-      form.style.display = "none";
-      success.style.display = "block";
+        console.log("HighLevel webhook sent successfully.");
+
+        form.style.display = "none";
+        success.style.display = "block";
+      } catch (error) {
+        console.error("HighLevel webhook error:", error);
+
+        alert(
+          "Your application could not be sent. Please try again. " +
+          "If this keeps happening, open the browser console to check for a CORS or network error."
+        );
+
+        submitButton.disabled = false;
+        submitButton.textContent = originalButtonText;
+      }
     });
 
 
