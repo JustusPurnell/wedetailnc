@@ -268,38 +268,30 @@
 
 
     .testimonials{
-      padding:4px 0 42px;
+      padding:8px 0 50px;
     }
 
     .testimonial-head{
       text-align:center;
-      margin-bottom:18px;
+      margin-bottom:24px;
     }
 
     .testimonial-head .mini{
       color:var(--accent);
-      font-size:11px;
+      font-size:12px;
       font-weight:900;
-      letter-spacing:.07em;
+      letter-spacing:.08em;
       text-transform:uppercase;
-      margin-bottom:6px;
+      margin-bottom:8px;
     }
 
     .testimonial-head h2{
       margin:0;
-      font-size:clamp(26px,4.5vw,38px);
-      letter-spacing:-.04em;
+      font-size:clamp(28px,5vw,40px);
+      letter-spacing:-.045em;
     }
 
-    .testimonial-slider{
-      position:relative;
-      display:flex;
-      align-items:center;
-      gap:10px;
-    }
-
-    .testimonial-track{
-      width:100%;
+    .video-grid{
       display:grid;
       grid-template-columns:repeat(3,1fr);
       gap:14px;
@@ -307,7 +299,6 @@
 
     .video-card{
       cursor:pointer;
-      min-width:0;
     }
 
     .video-wrap{
@@ -327,6 +318,7 @@
       background:#111;
     }
 
+    /* Thumbnail layer fixes black paused videos on iPhone/mobile Safari */
     .video-thumb{
       position:absolute;
       inset:0;
@@ -349,19 +341,19 @@
       z-index:2;
       display:grid;
       place-items:center;
-      background:rgba(0,0,0,.18);
+      background:rgba(0,0,0,.22);
       transition:.2s ease;
     }
 
     .play-circle{
-      width:54px;
-      height:54px;
+      width:58px;
+      height:58px;
       display:grid;
       place-items:center;
       border-radius:50%;
-      background:rgba(0,0,0,.58);
-      border:1px solid rgba(255,255,255,.42);
-      font-size:20px;
+      background:rgba(0,0,0,.62);
+      border:1px solid rgba(255,255,255,.45);
+      font-size:22px;
       padding-left:3px;
     }
 
@@ -371,140 +363,28 @@
     }
 
     .video-result{
-      padding:9px 2px 0;
+      padding:11px 3px 0;
       text-align:left;
     }
 
     .video-result b{
       display:block;
-      font-size:14px;
+      font-size:15px;
       line-height:1.25;
-      margin-bottom:2px;
+      margin-bottom:3px;
     }
 
     .video-result span{
       color:var(--muted);
-      font-size:11px;
-    }
-
-    .slider-btn,
-    .slider-dots{
-      display:none;
+      font-size:12px;
     }
 
     @media (max-width:600px){
-      .wrap{width:min(calc(100% - 20px), var(--max))}
-      .topbar{padding:14px 0}
-      .brand{font-size:13px}
-      .hero{padding:34px 0 18px}
-      .eyebrow{font-size:10px;padding:7px 10px}
-      h1{
-        font-size:39px;
-        line-height:1;
-        margin:14px auto 12px;
-      }
-      .sub{
-        font-size:16px;
-        line-height:1.45;
-        max-width:340px;
-      }
-      .cta{
-        width:100%;
-        max-width:340px;
-        padding:15px 18px;
-        margin-top:20px;
-      }
-
-      .testimonials{padding:8px 0 28px}
-      .testimonial-head{margin-bottom:14px}
-      .testimonial-head .mini{
-        font-size:9px;
-        line-height:1.35;
-        padding:0 12px;
-      }
-      .testimonial-head h2{font-size:25px}
-
-      .testimonial-slider{
-        max-width:300px;
-        margin:0 auto;
-      }
-
-      .testimonial-track{
-        display:block;
-      }
-
-      .video-card{
-        display:none;
-      }
-
-      .video-card.active{
-        display:block;
-      }
-
-      .slider-btn{
-        display:grid;
-        place-items:center;
-        position:absolute;
-        top:42%;
-        transform:translateY(-50%);
-        width:34px;
-        height:34px;
-        border-radius:50%;
-        border:1px solid var(--line);
-        background:rgba(5,5,5,.82);
-        color:white;
-        font-size:24px;
-        z-index:5;
-        cursor:pointer;
-      }
-
-      .slider-btn.prev{left:-10px}
-      .slider-btn.next-slide{right:-10px}
-
-      .slider-dots{
-        display:flex;
-        justify-content:center;
-        gap:7px;
-        margin-top:12px;
-      }
-
-      .dot{
-        width:7px;
-        height:7px;
-        border-radius:50%;
-        border:0;
-        padding:0;
-        background:#3b3b40;
-        cursor:pointer;
-      }
-
-      .dot.active{background:var(--accent)}
-
-      .video-result{
-        text-align:center;
-        padding-top:8px;
-      }
-
-      .video-result b{font-size:14px}
-      .video-result span{font-size:11px}
-
-      .apply-section{
-        padding:14px 0 48px;
-      }
-
-      .card{
-        padding:20px;
-        border-radius:18px;
-      }
-
-      .card h2{font-size:26px}
-      .card > p{
-        font-size:14px;
-        margin-bottom:18px;
-      }
-
-      .question{font-size:20px}
-      .option{padding:14px}
+      .hero{padding:42px 0 24px}
+      h1{font-size:47px}
+      .video-grid{grid-template-columns:1fr;max-width:320px;margin:0 auto}
+      .card{padding:22px}
+      .apply-section{padding-top:22px}
     }
   </style>
 </head>
@@ -532,64 +412,56 @@
         </p>
 
         <a class="cta" href="#apply">See If You Qualify →</a>
-</div>
+
+        <div class="small-note">
+          Short application. Takes about 60 seconds.
+        </div>
+      </div>
     </section>
 
     <section class="testimonials">
       <div class="wrap">
         <div class="testimonial-head">
           <div class="mini">20+ Detailers • 6 Figures+ In Client Jobs Closed*</div>
-          <h2>Detailers Getting Results</h2>
+          <h2>Real Detailers. Real Results.</h2>
         </div>
 
-        <div class="testimonial-slider">
-          <button class="slider-btn prev" type="button" aria-label="Previous testimonial">‹</button>
-
-          <div class="testimonial-track">
-            <div class="video-card active" data-index="0" onclick="playTestimonial(0)">
-              <div class="video-wrap">
-                <video id="testimonial0" src="videos/Saint.mp4" poster="videos/Saint-thumb.jpg" muted playsinline preload="metadata"></video>
-                <img class="video-thumb" src="videos/Saint-thumb.jpg" alt="Client testimonial thumbnail" loading="lazy">
-                <div class="play-overlay"><div class="play-circle">▶</div></div>
-              </div>
-              <div class="video-result">
-                <b>$800 booked first day</b>
-                <span>Detailing client result</span>
-              </div>
+        <div class="video-grid">
+          <div class="video-card" onclick="playTestimonial(0)">
+            <div class="video-wrap">
+              <video id="testimonial0" src="videos/Saint.mp4" poster="videos/Saint-thumb.jpg" muted playsinline preload="metadata"></video>
+              <img class="video-thumb" src="videos/Saint-thumb.jpg" alt="Client testimonial thumbnail" loading="lazy">
+              <div class="play-overlay"><div class="play-circle">▶</div></div>
             </div>
-
-            <div class="video-card" data-index="1" onclick="playTestimonial(1)">
-              <div class="video-wrap">
-                <video id="testimonial1" src="videos/VA.mp4" poster="videos/VA-thumb.jpg" muted playsinline preload="metadata"></video>
-                <img class="video-thumb" src="videos/VA-thumb.jpg" alt="Client testimonial thumbnail" loading="lazy">
-                <div class="play-overlay"><div class="play-circle">▶</div></div>
-              </div>
-              <div class="video-result">
-                <b>$1,600 booked in one day</b>
-                <span>From $25 in ad spend</span>
-              </div>
-            </div>
-
-            <div class="video-card" data-index="2" onclick="playTestimonial(2)">
-              <div class="video-wrap">
-                <video id="testimonial2" src="videos/Dallas.mp4" poster="videos/Dallas-thumb.jpg" muted playsinline preload="metadata"></video>
-                <img class="video-thumb" src="videos/Dallas-thumb.jpg" alt="Client testimonial thumbnail" loading="lazy">
-                <div class="play-overlay"><div class="play-circle">▶</div></div>
-              </div>
-              <div class="video-result">
-                <b>$900 booked first day</b>
-                <span>Detailing client result</span>
-              </div>
+            <div class="video-result">
+              <b>$800 booked first day</b>
+              <span>Detailing client result</span>
             </div>
           </div>
 
-          <button class="slider-btn next-slide" type="button" aria-label="Next testimonial">›</button>
-        </div>
+          <div class="video-card" onclick="playTestimonial(1)">
+            <div class="video-wrap">
+              <video id="testimonial1" src="videos/VA.mp4" poster="videos/VA-thumb.jpg" muted playsinline preload="metadata"></video>
+              <img class="video-thumb" src="videos/VA-thumb.jpg" alt="Client testimonial thumbnail" loading="lazy">
+              <div class="play-overlay"><div class="play-circle">▶</div></div>
+            </div>
+            <div class="video-result">
+              <b>$1,600 booked in one day</b>
+              <span>From $25 in ad spend</span>
+            </div>
+          </div>
 
-        <div class="slider-dots" aria-label="Testimonial navigation">
-          <button type="button" class="dot active" data-slide="0" aria-label="Show testimonial 1"></button>
-          <button type="button" class="dot" data-slide="1" aria-label="Show testimonial 2"></button>
-          <button type="button" class="dot" data-slide="2" aria-label="Show testimonial 3"></button>
+          <div class="video-card" onclick="playTestimonial(2)">
+            <div class="video-wrap">
+              <video id="testimonial2" src="videos/Dallas.mp4" poster="videos/Dallas-thumb.jpg" muted playsinline preload="metadata"></video>
+              <img class="video-thumb" src="videos/Dallas-thumb.jpg" alt="Client testimonial thumbnail" loading="lazy">
+              <div class="play-overlay"><div class="play-circle">▶</div></div>
+            </div>
+            <div class="video-result">
+              <b>$900 booked first day</b>
+              <span>Detailing client result</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -861,63 +733,6 @@
         video.load();
       }, { once:true });
     });
-
-
-    // Mobile testimonial slider
-    let currentTestimonial = 0;
-    const sliderCards = [...document.querySelectorAll(".video-card")];
-    const dots = [...document.querySelectorAll(".dot")];
-    const prevBtn = document.querySelector(".slider-btn.prev");
-    const nextBtn = document.querySelector(".slider-btn.next-slide");
-
-    function showTestimonial(index){
-      currentTestimonial = (index + sliderCards.length) % sliderCards.length;
-
-      sliderCards.forEach((card, i) => {
-        card.classList.toggle("active", i === currentTestimonial);
-
-        if(i !== currentTestimonial){
-          const video = card.querySelector("video");
-          if(video){
-            video.pause();
-            video.muted = true;
-            card.classList.remove("playing");
-          }
-        }
-      });
-
-      dots.forEach((dot, i) => {
-        dot.classList.toggle("active", i === currentTestimonial);
-      });
-    }
-
-    if(prevBtn) prevBtn.addEventListener("click", () => showTestimonial(currentTestimonial - 1));
-    if(nextBtn) nextBtn.addEventListener("click", () => showTestimonial(currentTestimonial + 1));
-
-    dots.forEach(dot => {
-      dot.addEventListener("click", () => showTestimonial(Number(dot.dataset.slide)));
-    });
-
-    let touchStartX = 0;
-    let touchEndX = 0;
-    const slider = document.querySelector(".testimonial-slider");
-
-    if(slider){
-      slider.addEventListener("touchstart", e => {
-        touchStartX = e.changedTouches[0].screenX;
-      }, {passive:true});
-
-      slider.addEventListener("touchend", e => {
-        touchEndX = e.changedTouches[0].screenX;
-        const diff = touchStartX - touchEndX;
-
-        if(Math.abs(diff) > 45){
-          showTestimonial(currentTestimonial + (diff > 0 ? 1 : -1));
-        }
-      }, {passive:true});
-    }
-
-    showTestimonial(0);
 
     showStep(1);
   </script>
