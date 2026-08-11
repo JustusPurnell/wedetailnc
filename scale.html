@@ -315,11 +315,30 @@
       height:100%;
       object-fit:cover;
       display:block;
+      background:#111;
+    }
+
+    /* Thumbnail layer fixes black paused videos on iPhone/mobile Safari */
+    .video-thumb{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      z-index:1;
+      transition:opacity .2s ease;
+      pointer-events:none;
+    }
+
+    .video-card.playing .video-thumb{
+      opacity:0;
     }
 
     .play-overlay{
       position:absolute;
       inset:0;
+      z-index:2;
       display:grid;
       place-items:center;
       background:rgba(0,0,0,.22);
@@ -410,7 +429,8 @@
         <div class="video-grid">
           <div class="video-card" onclick="playTestimonial(0)">
             <div class="video-wrap">
-              <video id="testimonial0" src="videos/Saint.mp4" muted playsinline preload="metadata"></video>
+              <video id="testimonial0" src="videos/Saint.mp4" poster="videos/Saint-thumb.jpg" muted playsinline preload="metadata"></video>
+              <img class="video-thumb" src="videos/Saint-thumb.jpg" alt="Client testimonial thumbnail" loading="lazy">
               <div class="play-overlay"><div class="play-circle">▶</div></div>
             </div>
             <div class="video-result">
@@ -421,7 +441,8 @@
 
           <div class="video-card" onclick="playTestimonial(1)">
             <div class="video-wrap">
-              <video id="testimonial1" src="videos/VA.mp4" muted playsinline preload="metadata"></video>
+              <video id="testimonial1" src="videos/VA.mp4" poster="videos/VA-thumb.jpg" muted playsinline preload="metadata"></video>
+              <img class="video-thumb" src="videos/VA-thumb.jpg" alt="Client testimonial thumbnail" loading="lazy">
               <div class="play-overlay"><div class="play-circle">▶</div></div>
             </div>
             <div class="video-result">
@@ -432,7 +453,8 @@
 
           <div class="video-card" onclick="playTestimonial(2)">
             <div class="video-wrap">
-              <video id="testimonial2" src="videos/Dallas.mp4" muted playsinline preload="metadata"></video>
+              <video id="testimonial2" src="videos/Dallas.mp4" poster="videos/Dallas-thumb.jpg" muted playsinline preload="metadata"></video>
+              <img class="video-thumb" src="videos/Dallas-thumb.jpg" alt="Client testimonial thumbnail" loading="lazy">
               <div class="play-overlay"><div class="play-circle">▶</div></div>
             </div>
             <div class="video-result">
@@ -668,6 +690,49 @@
         card.classList.add("playing");
       }
     }
+
+
+    // Mobile testimonial thumbnail fallback.
+    // Best option: upload Saint-thumb.jpg, VA-thumb.jpg and Dallas-thumb.jpg
+    // into the same /videos folder. If one is missing, this tries to create
+    // a preview from the actual video instead of leaving a black card.
+    document.querySelectorAll(".video-card").forEach((card) => {
+      const video = card.querySelector("video");
+      const thumb = card.querySelector(".video-thumb");
+
+      if (!video || !thumb) return;
+
+      thumb.addEventListener("error", () => {
+        thumb.style.display = "none";
+
+        const captureFrame = () => {
+          try {
+            const canvas = document.createElement("canvas");
+            canvas.width = video.videoWidth || 360;
+            canvas.height = video.videoHeight || 640;
+            const ctx = canvas.getContext("2d");
+            ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+            const dataUrl = canvas.toDataURL("image/jpeg", 0.82);
+
+            if (dataUrl && dataUrl !== "data:,") {
+              thumb.src = dataUrl;
+              thumb.style.display = "block";
+            }
+          } catch (e) {
+            // If the browser blocks frame capture, the native video poster remains the fallback.
+          }
+        };
+
+        const seekForPreview = () => {
+          const target = Math.min(0.5, Math.max(0.05, (video.duration || 1) * 0.05));
+          try { video.currentTime = target; } catch(e) {}
+        };
+
+        video.addEventListener("loadedmetadata", seekForPreview, { once:true });
+        video.addEventListener("seeked", captureFrame, { once:true });
+        video.load();
+      }, { once:true });
+    });
 
     showStep(1);
   </script>
