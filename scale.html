@@ -567,7 +567,7 @@
 
           <div class="success" id="success">
             <h3>Application received.</h3>
-            <p>Thanks — your information was submitted successfully.</p>
+            <p>Thanks — your information was submitted successfully. Redirecting you to book your call...</p>
           </div>
         </div>
       </div>
@@ -665,8 +665,9 @@
 
         console.log("HighLevel webhook sent successfully.");
 
-        form.style.display = "none";
-        success.style.display = "block";
+        // Redirect qualified lead straight to Calendly after successful CRM submission.
+        window.location.href = "https://calendly.com/justuspurnell1/30min";
+        return;
       } catch (error) {
         console.error("HighLevel webhook error:", error);
 

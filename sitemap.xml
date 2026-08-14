@@ -1,23 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- MAIN PAGES -->
   <url>
-    <loc>https://wedetailnc.com/home.html</loc>
-    <priority>1.0</priority>
+    <loc>https://wedetailnc.com/</loc>
   </url>
+
   <url>
     <loc>https://wedetailnc.com/services.html</loc>
-    <priority>0.9</priority>
   </url>
-  <url>
-    <loc>https://wedetailnc.com/testimonials.html</loc>
-    <priority>0.8</priority>
-  </url>
+
   <url>
     <loc>https://wedetailnc.com/about.html</loc>
-    <priority>0.8</priority>
   </url>
+
   <url>
-    <loc>https://wedetailnc.com/privacypolicy.html</loc>
-    <priority>0.5</priority>
+    <loc>https://wedetailnc.com/testimonials.html</loc>
   </url>
+
+  <!-- SERVICE PAGES -->
+  <url>
+    <loc>https://wedetailnc.com/interior-detailing-charlotte-nc.html</loc>
+  </url>
+
+  <url>
+    <loc>https://wedetailnc.com/ceramic-coating-charlotte-nc.html</loc>
+  </url>
+
+  <url>
+    <loc>https://wedetailnc.com/paint-correction-charlotte-nc.html</loc>
+  </url>
+
+  <url>
+    <loc>https://wedetailnc.com/paint-correction-ceramic-coating-charlotte-nc.html</loc>
+  </url>
+
+  <!-- SERVICE AREA HUB -->
+  <url>
+    <loc>https://wedetailnc.com/service-areas.html</loc>
+  </url>
+
+  <!-- CHARLOTTE -->
+  <url>
+    <loc>https://wedetailnc.com/mobile-detailing-charlotte-nc.html</loc>
+  </url>
+
+  <!-- CHARLOTTE AREA LOCATION PAGES -->
+  <url>
+    <loc>https://wedetailnc.com/mobile-detailing-ballantyne-nc.html</loc>
+  </url>
+
+  <url>
+    <loc>https://wedetailnc.com/mobile-detailing-southpark-nc.html</loc>
+  </url>
+
+  <url>
+    <loc>https://wedetailnc.com/mobile-detailing-south-end-nc.html</loc>
+  </url>
+
+  <url>
+    <loc>https://wedetailnc.com/mobile-detailing-huntersville-nc.html</loc>
+  </url>
+
+  <url>
+    <loc>https://wedetailnc.com/mobile-detailing-matthews-nc.html</loc>
+  </url>
+
+  <url>
+    <loc>https://wedetailnc.com/mobile-detailing-mint-hill-nc.html</loc>
+  </url>
+
+  <url>
+    <loc>https://wedetailnc.com/mobile-detailing-concord-nc.html</loc>
+  </url>
+
+  <url>
+    <loc>https://wedetailnc.com/mobile-detailing-pineville-nc.html</loc>
+  </url>
+
 </urlset>

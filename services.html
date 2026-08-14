@@ -3,21 +3,52 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Detailing Services Charlotte NC | Pricing & Packages | WeDetail</title>
-  <meta name="description" content="View our mobile car detailing packages in Charlotte, NC. Interior Detail, Reset & Deluxe packages, plus Maintenance plans. We come to you." />
+  <title>Car Detailing Services & Pricing Charlotte NC | WeDetail</title>
+  <meta name="description" content="Compare mobile car detailing packages in Charlotte, NC. Interior detailing from $199, full detail packages, ceramic coating and paint correction. We come to you." />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://wedetailcharlotte.com/services.html" />
+  <link rel="canonical" href="https://wedetailnc.com/services.html" />
+
+  <meta property="og:title" content="Car Detailing Services & Pricing Charlotte NC | WeDetail" />
+  <meta property="og:description" content="Compare mobile detailing packages, interior detailing, ceramic coating and paint correction in Charlotte, NC." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://wedetailnc.com/services.html" />
+  <meta property="og:image" content="https://wedetailnc.com/images/int.png" />
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    "name": "WeDetail Charlotte Detailing Services",
+    "name": "WeDetail Charlotte Detailing Services & Pricing",
+    "url": "https://wedetailnc.com/services.html",
     "itemListElement": [
-      {"@type":"ListItem","position":1,"name":"Interior Detail Package","description":"Interior-only detail starting at $199"},
-      {"@type":"ListItem","position":2,"name":"Reset Package","description":"Most popular full interior & exterior package starting at $269"},
-      {"@type":"ListItem","position":3,"name":"Deluxe Package","description":"Best value package starting at $349"},
-      {"@type":"ListItem","position":4,"name":"Paint Correction & Ceramic Coating","description":"Paint correction and ceramic coating options"}
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "url": "https://wedetailnc.com/interior-detailing-charlotte-nc.html",
+        "name": "Interior Detailing Charlotte NC",
+        "description": "Interior-only detailing starting at $199."
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "url": "https://wedetailnc.com/services.html",
+        "name": "Reset Full Detail Package",
+        "description": "Full interior and exterior mobile detailing starting at $269."
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "url": "https://wedetailnc.com/services.html",
+        "name": "Deluxe Detailing Package",
+        "description": "Full detailing with paint decontamination, clay bar and ceramic wax starting at $349."
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "url": "https://wedetailnc.com/paint-correction-ceramic-coating-charlotte-nc.html",
+        "name": "Paint Correction & Ceramic Coating Charlotte NC",
+        "description": "Paint correction and ceramic coating options for long-term paint improvement and protection."
+      }
     ]
   }
   </script>
@@ -91,6 +122,14 @@
     .nav-links a.active { border-bottom: 2px solid var(--red); padding-bottom: 2px; }
 
     .dropdown { position: relative; }
+    .dropdown::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      height: 12px;
+    }
     .dropdown-menu {
       display: none;
       position: absolute;
@@ -99,7 +138,7 @@
       background: rgba(10,10,11,0.98);
       border: 1px solid var(--white12);
       border-radius: 12px;
-      min-width: 190px;
+      min-width: 240px;
       padding: 10px 0;
       list-style: none;
       z-index: 999;
@@ -544,6 +583,20 @@
     }
     .note-bar a:hover { background: var(--red-hot); }
 
+    .service-learn-link {
+      display: inline-block;
+      margin-top: 0.8rem;
+      color: var(--white60);
+      font-size: 0.82rem;
+      font-weight: 700;
+      transition: color .2s, transform .2s;
+    }
+
+    .service-learn-link:hover {
+      color: var(--red);
+      transform: translateX(3px);
+    }
+
     /* ── FOOTER ── */
     footer {
       background: var(--dark2);
@@ -614,10 +667,22 @@
 
   <!-- NAV -->
   <nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
-    <div class="nav-logo">We<span>Detail</span></div>
+    <a href="/" class="nav-logo">We<span>Detail</span></a>
+
     <ul class="nav-links">
-      <li><a href="home.html">Home</a></li>
-      <li><a href="services.html" class="active">Services</a></li>
+      <li><a href="/">Home</a></li>
+
+      <li class="dropdown">
+        <a href="services.html" class="active">Services ▾</a>
+        <ul class="dropdown-menu">
+          <li><a href="services.html">All Services &amp; Pricing</a></li>
+          <li><a href="interior-detailing-charlotte-nc.html">Interior Detailing</a></li>
+          <li><a href="ceramic-coating-charlotte-nc.html">Ceramic Coating</a></li>
+          <li><a href="paint-correction-charlotte-nc.html">Paint Correction</a></li>
+          <li><a href="paint-correction-ceramic-coating-charlotte-nc.html">Correction &amp; Coating Packages</a></li>
+        </ul>
+      </li>
+
       <li class="dropdown">
         <a href="service-areas.html">Service Areas ▾</a>
         <ul class="dropdown-menu">
@@ -632,9 +697,12 @@
           <li><a href="mobile-detailing-south-end-nc.html">South End</a></li>
         </ul>
       </li>
+
       <li><a href="about.html">About</a></li>
     </ul>
+
     <a href="tel:9195272123" class="nav-cta">Call Us</a>
+
     <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -642,8 +710,17 @@
 
   <!-- MOBILE MENU -->
   <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile menu">
-    <a href="home.html">Home</a>
-    <a href="services.html">Services</a>
+    <a href="/">Home</a>
+
+    <div class="mobile-section-label">Services</div>
+    <div class="mobile-submenu">
+      <a href="services.html">All Services &amp; Pricing</a>
+      <a href="interior-detailing-charlotte-nc.html">Interior Detailing</a>
+      <a href="ceramic-coating-charlotte-nc.html">Ceramic Coating</a>
+      <a href="paint-correction-charlotte-nc.html">Paint Correction</a>
+      <a href="paint-correction-ceramic-coating-charlotte-nc.html">Correction &amp; Coating Packages</a>
+    </div>
+
     <div class="mobile-section-label">Service Areas</div>
     <div class="mobile-submenu">
       <a href="mobile-detailing-charlotte-nc.html">Charlotte</a>
@@ -656,6 +733,7 @@
       <a href="mobile-detailing-pineville-nc.html">Pineville</a>
       <a href="mobile-detailing-south-end-nc.html">South End</a>
     </div>
+
     <a href="about.html">About</a>
     <a href="tel:9195272123" class="mob-cta">Call Us →</a>
   </div>
@@ -667,7 +745,7 @@
     <div class="hero-content">
       <div class="hero-badge">Charlotte, NC · Mobile Detailing</div>
       <h1>Our <em>Packages</em><br>& Pricing</h1>
-      <p>Premium detailing brought to your driveway. Pick your package and we'll come to you.</p>
+      <p>Compare mobile car detailing packages in Charlotte, NC — from interior detailing and full details to ceramic coating and paint correction.</p>
     </div>
   </header>
 
@@ -690,6 +768,7 @@
           <div>
             <div class="card-name">Interior Detail</div>
             <div class="card-desc">A deep clean for the inside of your vehicle — perfect if the outside is already in good shape.</div>
+            <a class="service-learn-link" href="interior-detailing-charlotte-nc.html">Learn about Interior Detailing in Charlotte →</a>
           </div>
           <div class="card-divider"></div>
           <ul class="card-list" aria-label="Interior Detail package includes">
@@ -780,6 +859,8 @@
           <div>
             <div class="card-name">Paint Correction & Ceramic Coating</div>
             <div class="card-desc">Remove imperfections or protect your paint long-term — see which option fits your car.</div>
+            <a class="service-learn-link" href="paint-correction-charlotte-nc.html">Learn about Paint Correction →</a><br>
+            <a class="service-learn-link" href="ceramic-coating-charlotte-nc.html">Learn about Ceramic Coating →</a>
           </div>
           <div class="card-divider"></div>
           <ul class="card-list" aria-label="Paint correction and ceramic coating overview">
@@ -811,17 +892,46 @@
 
   <!-- FOOTER -->
   <footer role="contentinfo">
-    <div class="footer-inner">
-      <div class="footer-brand">We<span>Detail</span> Charlotte</div>
-      <div>Charlotte, NC · Mobile Car Detailing · Ceramic Coating · Paint Correction</div>
-      <div class="footer-links">
-        <a href="privacypolicy.html">Privacy Policy</a>
-        <a href="home.html">Home</a>
-        <a href="about.html">About</a>
+    <div class="footer-inner" style="align-items:flex-start;">
+
+      <div>
+        <div class="footer-brand">We<span>Detail</span> Charlotte</div>
+        <div style="max-width:300px;margin-top:.65rem;line-height:1.6;">
+          Mobile car detailing in Charlotte, NC with interior detailing, full detail packages, ceramic coating and paint correction brought to your location.
+        </div>
       </div>
+
+      <div class="footer-links" style="flex-direction:column;gap:.55rem;">
+        <strong style="color:var(--white80);">Services</strong>
+        <a href="services.html">Detailing Services &amp; Pricing</a>
+        <a href="interior-detailing-charlotte-nc.html">Interior Detailing Charlotte NC</a>
+        <a href="ceramic-coating-charlotte-nc.html">Ceramic Coating Charlotte NC</a>
+        <a href="paint-correction-charlotte-nc.html">Paint Correction Charlotte NC</a>
+        <a href="paint-correction-ceramic-coating-charlotte-nc.html">Correction &amp; Coating Packages</a>
+      </div>
+
+      <div class="footer-links" style="flex-direction:column;gap:.55rem;">
+        <strong style="color:var(--white80);">Service Areas</strong>
+        <a href="mobile-detailing-charlotte-nc.html">Mobile Detailing Charlotte NC</a>
+        <a href="mobile-detailing-ballantyne-nc.html">Ballantyne</a>
+        <a href="mobile-detailing-southpark-nc.html">SouthPark</a>
+        <a href="mobile-detailing-huntersville-nc.html">Huntersville</a>
+        <a href="mobile-detailing-matthews-nc.html">Matthews</a>
+        <a href="mobile-detailing-concord-nc.html">Concord</a>
+      </div>
+
+      <div class="footer-links" style="flex-direction:column;gap:.55rem;">
+        <strong style="color:var(--white80);">Company</strong>
+        <a href="/">Home</a>
+        <a href="about.html">About WeDetail</a>
+        <a href="service-areas.html">All Service Areas</a>
+        <a href="privacypolicy.html">Privacy Policy</a>
+      </div>
+
     </div>
+
     <div class="footer-bottom">
-      © 2025 WeDetail Charlotte. All rights reserved. Mobile car detailing serving Charlotte, NC and surrounding areas.
+      © 2026 WeDetail Charlotte. All rights reserved. Mobile car detailing serving Charlotte, NC and surrounding areas.
     </div>
   </footer>
 
