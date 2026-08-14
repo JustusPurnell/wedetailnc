@@ -690,31 +690,59 @@
     footer {
       background: var(--dark2);
       border-top: 1px solid var(--white12);
-      padding: 2.5rem 2rem;
+      padding: 3.5rem 2rem 2rem;
       color: var(--white40);
       font-size: .84rem;
     }
+
     .footer-inner {
       max-width: 1120px;
       margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr 1fr;
+      gap: 2rem;
+      align-items: start;
     }
+
     .footer-brand {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.2rem;
+      font-size: 1.35rem;
       letter-spacing: 2px;
       color: #fff;
+      margin-bottom: .8rem;
     }
+
     .footer-brand span { color: var(--red); }
-    .footer-links { display: flex; gap: 1.25rem; flex-wrap: wrap; }
+
+    .footer-about {
+      max-width: 310px;
+      line-height: 1.65;
+      color: var(--white40);
+    }
+
+    .footer-heading {
+      color: var(--white80);
+      font-weight: 700;
+      font-size: .9rem;
+      margin-bottom: .85rem;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: .55rem;
+    }
+
+    .footer-links a {
+      color: var(--white40);
+      transition: color .2s;
+    }
+
     .footer-links a:hover { color: #fff; }
+
     .footer-bottom {
       max-width: 1120px;
-      margin: 1.4rem auto 0;
+      margin: 2rem auto 0;
       padding-top: 1rem;
       border-top: 1px solid var(--white06);
       text-align: center;
@@ -730,6 +758,7 @@
       .hero-card { max-width: 620px; }
       .process-grid { grid-template-columns: repeat(2, 1fr); }
       .related-grid { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: repeat(2, 1fr); }
     }
 
     @media (max-width: 768px) {
@@ -742,7 +771,9 @@
       .service-hero-overlay {
         background: linear-gradient(180deg, rgba(0,0,0,.9), rgba(0,0,0,.72));
       }
-      .footer-inner { flex-direction: column; text-align: center; }
+      .footer-inner { grid-template-columns: 1fr; text-align: center; }
+      .footer-about { margin: 0 auto; }
+      .footer-links { align-items: center; }
     }
 
     @media (max-width: 520px) {
@@ -763,10 +794,10 @@
     data-source="WEB_USER"></script>
 
   <nav class="nav" id="nav" aria-label="Main navigation">
-    <a class="nav-logo" href="home.html">We<span>Detail</span></a>
+    <a class="nav-logo" href="/">We<span>Detail</span></a>
 
     <ul class="nav-links">
-      <li><a href="home.html">Home</a></li>
+      <li><a href="/">Home</a></li>
       <li class="dropdown">
         <a href="services.html" class="active">Services ▾</a>
         <ul class="dropdown-menu">
@@ -774,6 +805,7 @@
           <li><a href="interior-detailing-charlotte-nc.html" class="active">Interior Detailing</a></li>
           <li><a href="ceramic-coating-charlotte-nc.html">Ceramic Coating</a></li>
           <li><a href="paint-correction-charlotte-nc.html">Paint Correction</a></li>
+          <li><a href="paint-correction-ceramic-coating-charlotte-nc.html">Correction &amp; Coating Packages</a></li>
         </ul>
       </li>
 
@@ -803,7 +835,7 @@
   </nav>
 
   <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile menu">
-    <a href="home.html">Home</a>
+    <a href="/">Home</a>
 
     <div class="mobile-section-label">Services</div>
     <div class="mobile-submenu">
@@ -811,6 +843,7 @@
       <a href="interior-detailing-charlotte-nc.html" class="active">Interior Detailing</a>
       <a href="ceramic-coating-charlotte-nc.html">Ceramic Coating</a>
       <a href="paint-correction-charlotte-nc.html">Paint Correction</a>
+      <a href="paint-correction-ceramic-coating-charlotte-nc.html">Correction &amp; Coating Packages</a>
     </div>
 
     <div class="mobile-section-label">Service Areas</div>
@@ -1069,16 +1102,49 @@
     </div>
   </section>
 
-  <footer>
+  <footer role="contentinfo">
     <div class="footer-inner">
-      <div class="footer-brand">We<span>Detail</span> Charlotte</div>
-      <div>Interior Detailing · Mobile Car Detailing · Charlotte, NC</div>
-      <div class="footer-links">
-        <a href="services.html">Services</a>
-        <a href="service-areas.html">Service Areas</a>
-        <a href="about.html">About</a>
-        <a href="privacypolicy.html">Privacy</a>
+
+      <div>
+        <div class="footer-brand">We<span>Detail</span> Charlotte</div>
+        <p class="footer-about">
+          Mobile interior detailing, full car detailing, ceramic coating and paint correction serving Charlotte, NC and surrounding areas.
+        </p>
       </div>
+
+      <div>
+        <div class="footer-heading">Services</div>
+        <div class="footer-links">
+          <a href="services.html">Detailing Services &amp; Pricing</a>
+          <a href="interior-detailing-charlotte-nc.html">Interior Detailing Charlotte NC</a>
+          <a href="ceramic-coating-charlotte-nc.html">Ceramic Coating Charlotte NC</a>
+          <a href="paint-correction-charlotte-nc.html">Paint Correction Charlotte NC</a>
+          <a href="paint-correction-ceramic-coating-charlotte-nc.html">Correction &amp; Coating Packages</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-heading">Service Areas</div>
+        <div class="footer-links">
+          <a href="mobile-detailing-charlotte-nc.html">Mobile Detailing Charlotte NC</a>
+          <a href="mobile-detailing-ballantyne-nc.html">Ballantyne</a>
+          <a href="mobile-detailing-southpark-nc.html">SouthPark</a>
+          <a href="mobile-detailing-huntersville-nc.html">Huntersville</a>
+          <a href="mobile-detailing-matthews-nc.html">Matthews</a>
+          <a href="mobile-detailing-concord-nc.html">Concord</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-heading">Company</div>
+        <div class="footer-links">
+          <a href="/">Home</a>
+          <a href="about.html">About WeDetail</a>
+          <a href="service-areas.html">All Service Areas</a>
+          <a href="privacypolicy.html">Privacy Policy</a>
+        </div>
+      </div>
+
     </div>
 
     <div class="footer-bottom">

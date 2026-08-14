@@ -289,7 +289,7 @@
     .service-hero-bg {
       position:absolute;
       inset:0;
-      background:url('images/int.png') center 58% / cover no-repeat;
+      background:url('images/camaro.jpeg') center 58% / cover no-repeat;
     }
     .service-hero-overlay {
       position:absolute;
@@ -514,7 +514,7 @@
       border:1px solid var(--white12);
       background:
         linear-gradient(135deg, rgba(230,57,70,.07), rgba(255,255,255,.02)),
-        url('images/int.png') center / cover no-repeat;
+        url('images/camaro.jpeg') center / cover no-repeat;
       position:relative;
       overflow:hidden;
     }
@@ -828,42 +828,73 @@
 
     /* FOOTER */
     footer {
-      background:var(--dark2);
+      background:#0d0d0f;
       border-top:1px solid var(--white12);
-      padding:2.5rem 2rem;
-      color:var(--white40);
-      font-size:.84rem;
+      padding:4rem 1.5rem 1.5rem;
+      color:var(--white60);
     }
-    .footer-inner {
-      max-width:1120px;
+    .footer-grid {
+      max-width:1180px;
       margin:0 auto;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:1rem;
-      flex-wrap:wrap;
+      display:grid;
+      grid-template-columns:1.4fr 1fr 1fr 1.2fr;
+      gap:2.5rem;
     }
     .footer-brand {
       font-family:'Bebas Neue', sans-serif;
-      font-size:1.2rem;
+      font-size:1.7rem;
       letter-spacing:2px;
-      color:#fff;
+      color:var(--white);
+      display:inline-block;
+      margin-bottom:.9rem;
     }
     .footer-brand span { color:var(--red); }
+    .footer-about {
+      font-size:.88rem;
+      line-height:1.7;
+      max-width:290px;
+      color:var(--white40);
+    }
+    .footer-title {
+      color:var(--white);
+      font-size:.8rem;
+      font-weight:700;
+      letter-spacing:1.5px;
+      text-transform:uppercase;
+      margin-bottom:1rem;
+    }
     .footer-links {
       display:flex;
-      gap:1.25rem;
-      flex-wrap:wrap;
+      flex-direction:column;
+      gap:.7rem;
     }
-    .footer-links a:hover { color:#fff; }
+    .footer-links a {
+      color:var(--white60);
+      font-size:.86rem;
+      transition:color .2s;
+    }
+    .footer-links a:hover { color:var(--red); }
+    .footer-contact {
+      font-size:.86rem;
+      line-height:1.8;
+      color:var(--white60);
+    }
+    .footer-contact a { color:var(--white); font-weight:600; }
     .footer-bottom {
-      max-width:1120px;
-      margin:1.4rem auto 0;
-      padding-top:1rem;
+      max-width:1180px;
+      margin:2.5rem auto 0;
+      padding-top:1.25rem;
       border-top:1px solid var(--white06);
-      text-align:center;
-      font-size:.78rem;
+      display:flex;
+      justify-content:space-between;
+      gap:1rem;
+      flex-wrap:wrap;
+      font-size:.76rem;
+      color:var(--white40);
     }
+    .footer-bottom-links { display:flex; gap:1rem; flex-wrap:wrap; }
+    .footer-bottom a { color:var(--white40); }
+    .footer-bottom a:hover { color:var(--white); }
 
     @media (max-width:1000px) {
       .service-hero-inner,
@@ -888,7 +919,7 @@
         background:linear-gradient(180deg, rgba(0,0,0,.92), rgba(0,0,0,.72));
       }
       .compare-grid { grid-template-columns:1fr; }
-      .footer-inner { flex-direction:column; text-align:center; }
+      .footer-grid { grid-template-columns:1fr 1fr; gap:2rem; }\n      .footer-bottom { flex-direction:column; }
     }
 
     @media (max-width:520px) {
@@ -909,7 +940,7 @@
       .process-grid {
         grid-template-columns:1fr;
       }
-      .hero-card-top {
+      .footer-grid { grid-template-columns:1fr; }\n      .hero-card-top {
         align-items:flex-start;
         flex-direction:column;
       }
@@ -1325,22 +1356,53 @@
     </div>
   </section>
 
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-brand">We<span>Detail</span> Charlotte</div>
-      <div>Paint Correction · Ceramic Coating · Mobile Detailing · Charlotte, NC</div>
+  <footer role="contentinfo">
+    <div class="footer-grid">
+      <div>
+        <a href="/" class="footer-brand">We<span>Detail</span></a>
+        <p class="footer-about">Professional mobile car detailing, paint correction and ceramic coating throughout Charlotte, NC and surrounding communities. We bring premium detailing directly to your home or office.</p>
+      </div>
 
-      <div class="footer-links">
-        <a href="services.html">Services</a>
-        <a href="ceramic-coating-charlotte-nc.html">Ceramic Coating</a>
-        <a href="paint-correction-ceramic-coating-charlotte-nc.html">Correction &amp; Coating</a>
-        <a href="service-areas.html">Service Areas</a>
-        <a href="about.html">About</a>
+      <div>
+        <div class="footer-title">Services</div>
+        <div class="footer-links">
+          <a href="services.html">All Services &amp; Pricing</a>
+          <a href="interior-detailing-charlotte-nc.html">Interior Detailing</a>
+          <a href="ceramic-coating-charlotte-nc.html">Ceramic Coating</a>
+          <a href="paint-correction-charlotte-nc.html">Paint Correction</a>
+          <a href="paint-correction-ceramic-coating-charlotte-nc.html">Correction &amp; Coating Packages</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-title">Service Areas</div>
+        <div class="footer-links">
+          <a href="mobile-detailing-charlotte-nc.html">Charlotte</a>
+          <a href="mobile-detailing-ballantyne-nc.html">Ballantyne</a>
+          <a href="mobile-detailing-southpark-nc.html">SouthPark</a>
+          <a href="mobile-detailing-huntersville-nc.html">Huntersville</a>
+          <a href="mobile-detailing-matthews-nc.html">Matthews</a>
+          <a href="service-areas.html">View All Areas →</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-title">WeDetail Charlotte</div>
+        <div class="footer-contact">
+          Mobile service throughout Charlotte, NC<br>
+          <a href="tel:9195272123">(919) 527-2123</a><br>
+          By appointment
+        </div>
       </div>
     </div>
 
     <div class="footer-bottom">
-      © 2026 WeDetail Charlotte. Mobile paint correction serving Charlotte, NC and surrounding areas.
+      <span>© 2026 WeDetail. All rights reserved.</span>
+      <div class="footer-bottom-links">
+        <a href="/">Home</a>
+        <a href="about.html">About</a>
+        <a href="privacypolicy.html">Privacy Policy</a>
+      </div>
     </div>
   </footer>
 
